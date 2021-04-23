@@ -1,0 +1,74 @@
+﻿<Window x:Class="HotelCW.RoomRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelCW"
+        mc:Ignorable="d"
+        Title="RoomRegistration" Height="650" Width="650">
+    <Border Margin="10" Background="#182D3B">
+        <StackPanel>
+            <Grid Name="mainMenu">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="10" Grid.Column="0" Text="List of rooms" Foreground="AliceBlue"></TextBlock>
+                <Button Name="goBackBtn" Click="goBackBtn_Click" Grid.Column="8" MaxWidth="100" Content="Back"></Button>
+
+            </Grid>
+            
+            <Separator Background="Cyan"></Separator>
+
+            <Grid Name="bookSection">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!--name and lastname-->
+
+                <StackPanel Margin="10 0" Grid.Column="0">
+                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Name" TextAlignment="Center"></TextBlock>
+                    <TextBox Name="clientNameTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientNameTxt_TextChanged"></TextBox>
+                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Last name" TextAlignment="Center"></TextBlock>
+                    <TextBox Name="clientSecondNameTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientSecondNameTxt_TextChanged"></TextBox>
+                </StackPanel>
+
+                <!--phone and email-->
+
+                <StackPanel Margin="10 0" Grid.Column="1">
+                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Phone number" TextAlignment="Center"></TextBlock>
+                    <TextBox Name="clientPhoneTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientPhoneTxt_TextChanged"></TextBox>
+                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Email" TextAlignment="Center"></TextBlock>
+                    <TextBox Name="clientEmailTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientEmailTxt_TextChanged"></TextBox>
+                </StackPanel>
+            </Grid>
+
+            <Grid Margin="10 50" Background="CornflowerBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Name="RoomID" Padding="10" Grid.Column="0" Text="{Binding ClientOstatecznyNrPokoju}" Foreground="AliceBlue"></TextBlock>
+                <TextBlock Name="RoomCost" Padding="10" Grid.Column="1" Text="{Binding ClientCenaPokoju}" Foreground="AliceBlue"></TextBlock>
+                <TextBlock Name="RoomFloor" Padding="10" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" Text="Make sure that the price and the room number match." Background="RoyalBlue" Foreground="AliceBlue"></TextBlock>
+
+                <Button Click="bookBtn_Click" Grid.Column="3" Name="bookBtn" Content="Reserve now"></Button>
+
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

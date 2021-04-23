@@ -1,0 +1,111 @@
+﻿<Window x:Class="HotelCW.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelCW"
+        mc:Ignorable="d"
+        Title="Registration" Height="auto" MinHeight="700" Width="500" MinWidth="500" MaxWidth="800" MaxHeight="1000">
+    <Border Margin="5">
+        <StackPanel Background="DodgerBlue">
+            <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="10" Content="Welcome!"></Label>
+            <Button Width="auto" Height="30" HorizontalAlignment="Right" Background="Transparent" Content="ENG" Foreground="White" FontSize="20" FontWeight="Bold" BorderThickness="0" Margin="0 -28 0 0"></Button>
+
+            <Button Margin="10" Name="logoutBtn" Click="logoutBtn_Click" Content="Exit"></Button>
+            
+            <!--calendar-->
+
+            <Label Margin="10 0" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue"></Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="From" Margin="10"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="To" Margin="10"></Label>
+            </Grid>
+            <Grid Name="calendarGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Calendar SelectionMode="SingleDate" SelectedDate="{Binding SelectedDayFrom}" Name="fromCalendar" Grid.Column="0" Margin="10 0 0 10" Background="#c9c9c9"></Calendar>
+                <Calendar SelectionMode="SingleDate" SelectedDate="{Binding SelectedDayTo}" Name="toCalendar" Grid.Column="1" Margin="10 0 0 10"  Background="#c9c9c9"></Calendar>
+            </Grid>
+            
+            <!--end of the calendar-->
+
+            <Separator Background="AliceBlue"></Separator>
+            
+            <!--clients-->
+
+            <Grid Name="peopleDescription">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="Adults" Margin="10"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="Children under 3 (free)" Margin="10"></Label>
+            </Grid>
+
+            <Grid Name="peopleAmount">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Name="adultsCombobox" SelectedItem="1" Margin="10 0" Grid.Column="0">
+                    <ComboBoxItem Content="1"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Content="2"></ComboBoxItem>
+                    <ComboBoxItem Content="3"></ComboBoxItem>
+                    <ComboBoxItem Content="4"></ComboBoxItem>
+                </ComboBox>
+
+                <ComboBox Name="childrenCombobox" SelectedItem="0" Margin="10 0" Grid.Column="1">
+                    <ComboBoxItem IsSelected="True" Content="0"></ComboBoxItem>
+                    <ComboBoxItem Content="1"></ComboBoxItem>
+                    <ComboBoxItem Content="2"></ComboBoxItem>
+                    <ComboBoxItem Content="3"></ComboBoxItem>
+                    <ComboBoxItem Content="4"></ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            
+            <!--end of clients-->
+            
+            <!--service-->
+
+            <Label Margin="10 10" Content="Service" Background="#182D3B" Foreground="AliceBlue"></Label>
+
+            <Grid Name="extras" Margin="10 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Background="#182D3B">
+                    <CheckBox Name="wakeUp" Margin="1" Content="Wake up - 1$" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="fridge" Margin="1" Content="Fridge - 1$" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="safe" Margin="1" Content="Safe 1$" Foreground="AliceBlue"></CheckBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Background="#182D3B">
+                    <CheckBox Name="childBed" Margin="1" Content="Baby cot - 1$" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="coffeeMachine" Margin="1" Content="Coffe machine - 2$" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="breakfastToBed" Margin="1" Content="Breakfast in bed - 3$/person" Foreground="AliceBlue"></CheckBox>
+                </StackPanel>
+            </Grid>
+
+            <Border Margin="10 10" CornerRadius="15" Background="White">
+                <Label Content="* If you reserve a room with a child, then take a baby cot if you wish."></Label>
+            </Border>
+            <!--checking availability-->
+
+            <Button Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Check availability"></Button>
+
+            <!--end of availability check-->
+        </StackPanel>
+    </Border>
+</Window>
