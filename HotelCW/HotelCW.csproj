@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Hotel.cs" />
     <Compile Include="ListOfHotels.xaml.cs">
       <DependentUpon>ListOfHotels.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="chrome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="89891011.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="by.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pl.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

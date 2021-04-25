@@ -24,15 +24,14 @@ namespace HotelCW
             InitializeComponent();
         }
 
-        private void blr_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void addCountry_Click(object sender, RoutedEventArgs e)
         {
-            Label label = new Label();
-            label.Content = "Belarus Hotel";
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString("red");
-            label.Background = brush;
-            label.Margin = new Thickness(0, 10, 0, 0);
-            hotelsColumn.Children.Add(label);
+
+        }
+
+        private void deleteCountry_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

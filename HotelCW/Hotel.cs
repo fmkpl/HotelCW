@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HotelCW
 {
-    class Hotel
+    public class Hotel
     {
+        string Name { get; set; }
     }
 }

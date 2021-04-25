@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HotelCW
 {
-    class Country
+    public class Country
     {
+        string Name { get; set; }
+        List<Hotel> hotelsInTheCountry = new List<Hotel>();
     }
 }
