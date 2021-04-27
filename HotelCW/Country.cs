@@ -8,7 +8,8 @@ namespace HotelCW
 {
     public class Country
     {
-        string Name { get; set; }
+        public string Name { get; set; }
+        
         List<Hotel> hotelsInTheCountry = new List<Hotel>();
     }
 }

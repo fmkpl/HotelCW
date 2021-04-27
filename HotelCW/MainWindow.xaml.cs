@@ -30,8 +30,8 @@ namespace HotelCW
         {
             if (txtUsername.Text=="1" && txtPassword.Password=="1")
             {
-                ListOfHotels listOfHotels = new ListOfHotels();
-                listOfHotels.Show();
+                Registration registration = new Registration();
+                registration.Show();
                 this.Close();
             }
             else 
@@ -57,6 +57,11 @@ namespace HotelCW
         private void MetanitLink_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("https://metanit.com/sharp/wpf/");
+        }
+
+        private void change_Login_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

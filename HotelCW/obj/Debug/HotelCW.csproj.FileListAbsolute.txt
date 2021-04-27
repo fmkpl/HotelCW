@@ -15,7 +15,5 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.exe
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.pdb
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Registration.g.cs
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Registration.baml
-D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\ListOfHotels.g.cs
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\RoomRegistration.g.cs
-D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\ListOfHotels.baml
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\RoomRegistration.baml
