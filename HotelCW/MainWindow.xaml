@@ -32,7 +32,7 @@
             </StackPanel>
             <Button x:Name="change_Login" Background="Transparent" Foreground="WhiteSmoke" HorizontalAlignment="Center" FontSize="20" Margin="20" BorderThickness="0" Click="change_Login_Click">
                 <Button.Content>
-                    <TextBlock TextDecorations="Underline">Log in as user</TextBlock>
+                    <TextBlock TextDecorations="Underline">Log in as admin</TextBlock>
                 </Button.Content>
             </Button>
         </StackPanel>

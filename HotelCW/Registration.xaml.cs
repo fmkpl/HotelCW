@@ -19,9 +19,18 @@ namespace HotelCW
     /// </summary>
     public partial class Registration : Window
     {
+        Hotel myHotel;
+        User currentClient;
         public Registration()
         {
             InitializeComponent();
+            myHotel = new Hotel();
+        }
+        public Registration(User _client) 
+        {
+            InitializeComponent();
+            myHotel = new Hotel();
+            currentClient = _client;
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
@@ -34,7 +43,9 @@ namespace HotelCW
 
         private void btnCheck_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            RoomRegistration roomRegistration = new RoomRegistration();
+            roomRegistration.Show();
         }
     }
 }

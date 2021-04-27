@@ -8,21 +8,21 @@
         Title="Registration" Height="auto" MinHeight="700" Width="500" MinWidth="500" MaxWidth="800" MaxHeight="1000">
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
-            <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="10" Content="Welcome!"></Label>
+            <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Welcome!"></Label>
             <Button Width="auto" Height="30" HorizontalAlignment="Right" Background="Transparent" Content="ENG" Foreground="White" FontSize="20" FontWeight="Bold" BorderThickness="0" Margin="0 -28 0 0"></Button>
 
-            <Button Margin="10" Name="logoutBtn" Click="logoutBtn_Click" Content="Exit"></Button>
+            <Button Margin="10" Name="logoutBtn" Click="logoutBtn_Click" Content="Exit" FontSize="15"></Button>
             
             <!--calendar-->
 
-            <Label Margin="10 0" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue"></Label>
+            <Label Margin="10 0" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="From" Margin="10"></Label>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="To" Margin="10"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="From" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="To" Margin="10" FontSize="15"></Label>
             </Grid>
             <Grid Name="calendarGrid">
                 <Grid.ColumnDefinitions>
@@ -46,8 +46,8 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="Adults" Margin="10"></Label>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="Children under 3 (free)" Margin="10"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="Adults" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="Children under 3 (free)" Margin="10" FontSize="15"></Label>
             </Grid>
 
             <Grid Name="peopleAmount">
@@ -56,14 +56,14 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Name="adultsCombobox" SelectedItem="1" Margin="10 0" Grid.Column="0">
+                <ComboBox Name="adultsCombobox" SelectedItem="1" Margin="10 0" Grid.Column="0" FontSize="15">
                     <ComboBoxItem Content="1"></ComboBoxItem>
                     <ComboBoxItem IsSelected="True" Content="2"></ComboBoxItem>
                     <ComboBoxItem Content="3"></ComboBoxItem>
                     <ComboBoxItem Content="4"></ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox Name="childrenCombobox" SelectedItem="0" Margin="10 0" Grid.Column="1">
+                <ComboBox Name="childrenCombobox" SelectedItem="0" Margin="10 0" Grid.Column="1" FontSize="15">
                     <ComboBoxItem IsSelected="True" Content="0"></ComboBoxItem>
                     <ComboBoxItem Content="1"></ComboBoxItem>
                     <ComboBoxItem Content="2"></ComboBoxItem>
@@ -76,7 +76,7 @@
             
             <!--service-->
 
-            <Label Margin="10 10" Content="Service" Background="#182D3B" Foreground="AliceBlue"></Label>
+            <Label Margin="10 10" Content="Service" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
 
             <Grid Name="extras" Margin="10 0">
 
@@ -86,24 +86,24 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Background="#182D3B">
-                    <CheckBox Name="wakeUp" Margin="1" Content="Wake up - 1$" Foreground="AliceBlue"></CheckBox>
-                    <CheckBox Name="fridge" Margin="1" Content="Fridge - 1$" Foreground="AliceBlue"></CheckBox>
-                    <CheckBox Name="safe" Margin="1" Content="Safe 1$" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="wakeUp" Margin="1" Content="Wake up - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="fridge" Margin="1" Content="Fridge - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="safe" Margin="1" Content="Safe 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Background="#182D3B">
-                    <CheckBox Name="childBed" Margin="1" Content="Baby cot - 1$" Foreground="AliceBlue"></CheckBox>
-                    <CheckBox Name="coffeeMachine" Margin="1" Content="Coffe machine - 2$" Foreground="AliceBlue"></CheckBox>
-                    <CheckBox Name="breakfastToBed" Margin="1" Content="Breakfast in bed - 3$/person" Foreground="AliceBlue"></CheckBox>
+                    <CheckBox Name="childBed" Margin="1" Content="Baby cot - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="coffeeMachine" Margin="1" Content="Coffe machine - 2$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="breakfastToBed" Margin="1" Content="Breakfast in bed - 3$/person" Foreground="AliceBlue" FontSize="15"></CheckBox>
                 </StackPanel>
             </Grid>
 
             <Border Margin="10 10" CornerRadius="15" Background="White">
-                <Label Content="* If you reserve a room with a child, then take a baby cot if you wish."></Label>
+                <Label Content="* If you reserve a room with a child, then take a baby cot if you wish." FontSize="15"></Label>
             </Border>
             <!--checking availability-->
 
-            <Button Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Check availability"></Button>
+            <Button Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Check availability" FontSize="15"></Button>
 
             <!--end of availability check-->
         </StackPanel>

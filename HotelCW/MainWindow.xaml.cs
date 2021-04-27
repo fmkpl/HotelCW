@@ -21,25 +21,37 @@ namespace HotelCW
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<User> clients;
         public MainWindow()
         {
             InitializeComponent();
+            clients = new List<User>() { 
+                new User() {Name="Efim", LastName="Kopyl", Password="1234" },
+                new User() {Name="Sergei", LastName="Valko", Password="1111" },
+                new User() {Name="Kazimir", LastName="Kantor", Password="2222" },
+                new User() {Name="Ivan", LastName="Grishin", Password="0000" }
+            };
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text=="1" && txtPassword.Password=="1")
+            
+            foreach (User client in clients)
             {
-                Registration registration = new Registration();
-                registration.Show();
-                this.Close();
+                if (txtUsername.Text == (client.Name + " " + client.LastName) && txtPassword.Password == client.Password)
+                {
+                    Registration registration = new Registration(client);
+                    registration.Show();
+                    this.Close();
+                }
+                else
+                {
+                    txtPassword.Clear();
+                    txtUsername.Clear();
+                }
             }
-            else 
-            {
-                txtPassword.Clear();
-                txtUsername.Clear();
-                MessageBox.Show("Invalid input. Try again.");
-            }
+            
+            //MessageBox.Show("Invalid input. Try again.");
         }
         private void TxtPassword_OnKeyUp(object sender, KeyEventArgs e)
         {

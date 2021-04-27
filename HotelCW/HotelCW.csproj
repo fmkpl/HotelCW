@@ -56,14 +56,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Admin.cs" />
-    <Compile Include="Country.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Room.cs" />
     <Compile Include="RoomRegistration.xaml.cs">
       <DependentUpon>RoomRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
