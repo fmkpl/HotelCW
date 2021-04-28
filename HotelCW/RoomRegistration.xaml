@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Margin="10" Grid.Column="0" Text="List of rooms" Foreground="AliceBlue"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Margin="10" Grid.Column="0" Text="List of rooms: " Foreground="AliceBlue" Name="freeRooms"></TextBlock>
                 <Button Name="goBackBtn" Click="goBackBtn_Click" Grid.Column="8" MaxWidth="100" Content="Back"></Button>
 
             </Grid>
@@ -30,6 +30,11 @@
 
             <Grid Name="bookSection">
 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -37,7 +42,7 @@
 
                 <!--name and lastname-->
 
-                <StackPanel Margin="10 0" Grid.Column="0">
+                <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="0">
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Name" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientNameTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientNameTxt_TextChanged"></TextBox>
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Last name" TextAlignment="Center"></TextBlock>
@@ -46,12 +51,19 @@
 
                 <!--phone and email-->
 
-                <StackPanel Margin="10 0" Grid.Column="1">
+                <StackPanel Margin="10 0" Grid.Column="1" Grid.Row="0">
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Phone number" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientPhoneTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientPhoneTxt_TextChanged"></TextBox>
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Email" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientEmailTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientEmailTxt_TextChanged"></TextBox>
                 </StackPanel>
+                <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Room number" TextAlignment="Center"></TextBlock>
+                    <TextBox Name="clientNumberOfRoomTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientNumberOfRoomTxt_TextChanged"></TextBox>
+                </StackPanel>
+                <!--number of room-->
+
+                
             </Grid>
 
             <Grid Margin="10 50" Background="CornflowerBlue">
