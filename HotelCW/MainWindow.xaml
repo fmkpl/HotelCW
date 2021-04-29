@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelCW"
         mc:Ignorable="d"
-        Title="HotelCW" Height="550" MinHeight="550" MaxHeight="800" Width="550" MinWidth="550" MaxWidth="800" Background="#05668D">
+        Title="HotelCW" Height="600" MinHeight="600" MaxHeight="800" Width="550" MinWidth="550" MaxWidth="800" Background="#05668D">
     <Border CornerRadius="25" Margin="30">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -22,7 +22,8 @@
             <Label Content="Password" Foreground="white" FontSize="17"/>
             <PasswordBox Name="txtPassword" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#ebf2fa"></PasswordBox>
             <Button Name="btnSubmit" Click="btnSubmit_Click" Padding="5" Foreground="#EBF2FA" Background="#182D3B" Content="Log in" Margin="60 30" FontSize="17"></Button>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 -15">
+            <Button Name="register" Click="register_Click" Padding="5" Foreground="#ebf2fa" Background="#182d3b" Content="Sign up" Margin="60 -10" FontSize="17"></Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 25">
                 <Button Name="VKlink" Click="VKlink_Click" Width="40" Height="40" Background="Transparent" BorderThickness="0">
                     <Image Source="vk.png"/>
                 </Button>

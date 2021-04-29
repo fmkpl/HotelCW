@@ -51,8 +51,9 @@ namespace HotelCW
                     
                 }
             }
-            if (check == 4) 
+            if (check == clients.Count) 
             {
+                MessageBox.Show("Wrong input or there is no account with such name. \nTry to register.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtPassword.Clear();
                 txtUsername.Clear();
             }
@@ -81,6 +82,19 @@ namespace HotelCW
         private void change_Login_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+            User newClient = new User();
+            string[] x = txtUsername.Text.Split();
+            newClient.Name = x[0];
+            newClient.LastName = x[1];
+            newClient.Password = txtPassword.Password;
+            clients.Add(newClient);
+            MessageBox.Show("Welcome to the hotel!");
+            Registration registration = new Registration(newClient, hotel);
+            registration.Show();
         }
     }
 }
