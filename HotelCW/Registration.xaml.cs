@@ -98,7 +98,7 @@ namespace HotelCW
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Данные введены неверно либо не полностью.");
                 return;
             }
         }

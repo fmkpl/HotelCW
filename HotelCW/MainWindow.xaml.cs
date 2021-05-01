@@ -27,7 +27,7 @@ namespace HotelCW
         {
             InitializeComponent();
             hotel = new Hotel();
-            clients = new List<User>() { 
+            clients = new List<User>() {
                 new User() {Name="Efim", LastName="Kopyl", Password="1234" },
                 new User() {Name="Sergei", LastName="Valko", Password="1111" },
                 new User() {Name="Kazimir", LastName="Kantor", Password="2222" },

@@ -57,16 +57,27 @@ namespace HotelCW
             }
             clientEnd.Email = clientEmailTxt.Text;
             clientEnd.PhoneNumber = clientPhoneTxt.Text;
-            foreach (Room room in hotel.listOfRooms)
-            {
-                if (clientNumberOfRoomTxt.Text == room.Number) 
+           
+                foreach (Room room in hotel.listOfRooms)
                 {
-                    clientEnd.userRoom = room;
+                    if (clientNumberOfRoomTxt.Text == room.Number)
+                    {
+                        clientEnd.userRoom = room;
+                    }
                 }
-            }
-            hotel.listOfRooms.Remove(clientEnd.userRoom);
             
+                hotel.listOfRooms.Remove(clientEnd.userRoom);
+
+            if (clientEnd.userRoom == null)
+            {
+                MessageBox.Show("Номер занят или не существует.");
+                return;
+            }
+
+
             clientEnd.ServicePrice += (clientEnd.Adults*clientEnd.userRoom.Price);
+            
+            
             string str;
             str = "Name: " + clientEnd.Name +
                 "\nLast name: " + clientEnd.LastName +
