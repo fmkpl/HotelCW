@@ -1,7 +1,5 @@
-﻿using HotelCW.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HotelCW
+namespace HotelCW.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AdminView.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    { 
-        public MainWindow()
+    public partial class AdminView : UserControl
+    {
+        public AdminView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
-            
         }
     }
 }

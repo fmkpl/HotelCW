@@ -17,3 +17,9 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Registration.g.cs
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Registration.baml
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\RoomRegistration.g.cs
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\RoomRegistration.baml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\AdminView.g.cs
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\UserView.g.cs
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\App.baml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\AdminView.baml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\UserView.baml
