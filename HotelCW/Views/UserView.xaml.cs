@@ -80,11 +80,6 @@ namespace HotelCW.Views
             Process.Start("https://metanit.com/sharp/wpf/");
         }
 
-        private void change_Login_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void register_Click(object sender, RoutedEventArgs e)
         {
             User newClient = new User();

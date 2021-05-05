@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -75,7 +77,7 @@ namespace HotelCW
             }
 
 
-            clientEnd.ServicePrice += (clientEnd.Adults*clientEnd.userRoom.Price);
+            clientEnd.ServicePrice += (clientEnd.Adults * clientEnd.userRoom.Price * (clientEnd.selectedDateTo.Day - clientEnd.selectedDateFrom.Day));
             
             
             string str;
@@ -91,6 +93,29 @@ namespace HotelCW
                 "\nRoom price: "+clientEnd.userRoom.Price.ToString()+
                 "\nTotal price: " + clientEnd.ServicePrice.ToString();
             MessageBox.Show(str);
+
+            try { 
+            
+            SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 25);
+            smtp.Credentials = new NetworkCredential("efimberg22@gmail.com", "LLW-XNG-Nny-3Gw");
+            smtp.EnableSsl = true;
+
+            MailMessage m = new MailMessage();
+            m.From = new MailAddress("efimberg22@gmail.com");
+            m.To.Add(new MailAddress(clientEnd.Email));
+            m.SubjectEncoding = Encoding.UTF8;
+            m.BodyEncoding = Encoding.UTF8;
+            m.Subject = "Room registration";
+            m.Body = "Your room registration is done!";
+            
+                smtp.Send(m);
+                Console.WriteLine("Message sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message} Error! Message sent failure.");
+            }
+
             this.Close();
         }
 

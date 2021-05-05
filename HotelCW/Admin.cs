@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace HotelCW
 {
-    public static class Admin
+    public class Admin
     {
-        public static void addHotel(string hotel_name) { }
-        public static void deleteHotel(string hotel_name) { }
-        public static void deleteCountry(string country_name) { }
-        public static void addCountry(string country_name) { }
+        public string AdminName { get; set; }
+        public string AdminPassword { get; set; }
+        public string AdminControlword { get; set; }
+
+        public void AcceptRoomReserving() { }
+        public void CancelRoomReserving() { }
+
     }
 }

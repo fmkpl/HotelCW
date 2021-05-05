@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock TextWrapping="Wrap" Margin="10" Grid.Column="0" Text="List of rooms: " Foreground="AliceBlue" Name="freeRooms"></TextBlock>
-                <Button Name="goBackBtn" Click="goBackBtn_Click" Grid.Column="8" MaxWidth="100" Content="Back"></Button>
+                <Button Cursor="Hand" Name="goBackBtn" Click="goBackBtn_Click" Grid.Column="8" MaxWidth="100" Content="Back"></Button>
 
             </Grid>
             
@@ -78,7 +78,7 @@
                 <TextBlock Name="RoomCost" Padding="10" Grid.Column="1" Text="{Binding ClientCenaPokoju}" Foreground="AliceBlue"></TextBlock>
                 <TextBlock Name="RoomFloor" Padding="10" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" Text="Make sure that the price and the room number match." Background="RoyalBlue" Foreground="AliceBlue"></TextBlock>
 
-                <Button Click="bookBtn_Click" Grid.Column="3" Name="bookBtn" Content="Reserve now"></Button>
+                <Button Cursor="Hand" Click="bookBtn_Click" Grid.Column="3" Name="bookBtn" Content="Reserve now"></Button>
 
             </Grid>
         </StackPanel>

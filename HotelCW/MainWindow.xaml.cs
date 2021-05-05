@@ -28,5 +28,17 @@ namespace HotelCW
             DataContext = new MainViewModel();
             
         }
+
+        private void log_in_as_admin_Click(object sender, RoutedEventArgs e)
+        {
+            if (startWindow.Children.Contains(welcome) == false) { return; }
+            startWindow.Children.Remove(welcome);
+        }
+
+        private void log_in_as_user_Click(object sender, RoutedEventArgs e)
+        {
+            if (startWindow.Children.Contains(welcome) == false) { return; }
+            startWindow.Children.Remove(welcome);
+        }
     }
 }
