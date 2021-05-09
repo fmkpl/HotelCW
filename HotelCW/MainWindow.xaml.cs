@@ -31,14 +31,14 @@ namespace HotelCW
 
         private void log_in_as_admin_Click(object sender, RoutedEventArgs e)
         {
-            if (startWindow.Children.Contains(welcome) == false) { return; }
-            startWindow.Children.Remove(welcome);
+            if (startWindow.Children.Contains(welcome) == false) { return; } else if(startWindow.Children.Contains(welcome)==true) { startWindow.Children.Remove(welcome); }
+            
         }
 
         private void log_in_as_user_Click(object sender, RoutedEventArgs e)
         {
-            if (startWindow.Children.Contains(welcome) == false) { return; }
-            startWindow.Children.Remove(welcome);
+            if (startWindow.Children.Contains(welcome) == false) { return; } else if(startWindow.Children.Contains(welcome)==true) { startWindow.Children.Remove(welcome); }
+            
         }
     }
 }

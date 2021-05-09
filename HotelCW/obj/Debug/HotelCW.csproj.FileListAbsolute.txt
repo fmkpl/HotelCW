@@ -23,3 +23,12 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\GeneratedInternalTypeHelp
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\App.baml
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\AdminView.baml
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\Views\UserView.baml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\bin\Debug\EntityFramework.dll
+D:\курсач 4 сем\vip\HotelCW\HotelCW\bin\Debug\EntityFramework.SqlServer.dll
+D:\курсач 4 сем\vip\HotelCW\HotelCW\bin\Debug\EntityFramework.xml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\bin\Debug\EntityFramework.SqlServer.xml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\AdminControl.g.cs
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\AdminControl.baml
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.csproj.CopyComplete
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.InitialCreate.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.roomType.resources

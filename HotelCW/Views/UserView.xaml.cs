@@ -35,10 +35,15 @@ namespace HotelCW.Views
                 new User() {Name="Kazimir", LastName="Kantor", Password="2222" },
                 new User() {Name="Ivan", LastName="Grishin", Password="0000" }
             };
+            
         }
+        
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            int check = 0;
+            
+
+
+                int check = 0;
             foreach (User client in clients)
             {
                 if (txtUsername.Text == (client.Name + " " + client.LastName) && txtPassword.Password == client.Password)
@@ -82,13 +87,15 @@ namespace HotelCW.Views
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
+
+            
             User newClient = new User();
             string[] x = txtUsername.Text.Split();
             newClient.Name = x[0];
             newClient.LastName = x[1];
             newClient.Password = txtPassword.Password;
             clients.Add(newClient);
-            MessageBox.Show("Welcome to the hotel!");
+           
             Registration registration = new Registration(newClient, hotel);
             registration.Show();
         }

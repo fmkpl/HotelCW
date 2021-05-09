@@ -63,8 +63,8 @@ namespace HotelCW
                     MessageBox.Show("Hotel is full. Sorry(", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                currentClient.selectedDateFrom = (System.DateTime)fromCalendar.SelectedDate;
-                currentClient.selectedDateTo = (System.DateTime)toCalendar.SelectedDate;
+                //currentClient.selectedDateFrom = (System.DateTime)fromCalendar.SelectedDate;
+                //currentClient.selectedDateTo = (System.DateTime)toCalendar.SelectedDate;
                 currentClient.Adults = adultsCombobox.SelectedIndex + 1;
                 currentClient.ChildsUnderThree = childrenCombobox.SelectedIndex + 1;
 

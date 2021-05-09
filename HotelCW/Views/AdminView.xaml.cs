@@ -24,6 +24,7 @@ namespace HotelCW.Views
 
         Hotel hotel;
         List<User> clients;
+        
         public AdminView()
         {
             InitializeComponent();
@@ -44,8 +45,8 @@ namespace HotelCW.Views
             {
                 if (txtAdminname.Text == (client.Name + " " + client.LastName) && txtPassword.Password == client.Password)
                 {
-                    Registration registration = new Registration(client, hotel);
-                    registration.Show();
+                    //AdminControl registration = new AdminControl(client, hotel);
+                    //registration.Show();
                 }
                 else
                 {

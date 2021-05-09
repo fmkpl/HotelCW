@@ -1,0 +1,51 @@
+﻿<Window x:Class="HotelCW.AdminControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelCW"
+        mc:Ignorable="d"
+        Title="AdminControl"
+        Height="600"
+        MinHeight="600"
+        MaxHeight="800"
+        Width="800"
+        MinWidth="800"
+        MaxWidth="1000"
+        Background="#05668D">
+    <Border Margin="30" Background="MidnightBlue">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <TextBlock Text="Number of new room:" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="numberOfNewRoom"/>
+                <TextBlock Text="Price of new room:" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="priceOfNewRoom"/>
+                <TextBlock Text="Type of new room:" Foreground="WhiteSmoke" FontSize="20"/>
+                <ComboBox x:Name="typeOfNewRoom">
+                    <ComboBoxItem>
+                        <TextBlock Text="Default" FontSize="12"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="VIP" FontSize="12"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Content="Add room" Height="50" Width="120" Margin="10" FontSize="20"/>
+                
+                <Separator Background="Cyan"/>
+
+                <TextBlock Text="Number of new room:" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="numberOfNewRoomToDelete"/>
+                <Button Content="Delete room" Height="50" Width="120" Margin="10" FontSize="20"/>
+            </StackPanel>
+            <DataGrid Grid.Column="1" x:Name="clientsGrid" AutoGenerateColumns="True">
+                
+            </DataGrid>
+
+        </Grid>
+    </Border>
+</Window>
