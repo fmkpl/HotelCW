@@ -23,21 +23,33 @@ namespace HotelCW
     {
         public User clientEnd;
         public Hotel hotel;
+        
         public RoomRegistration()
         {
             InitializeComponent();
+            LoadRoomsFromDb();
         }
-        public RoomRegistration(User _currentClient, Hotel _myHotel)  
+        private void LoadRoomsFromDb() 
+        {
+
+            List<Room> rooms = new List<Room>();
+            using (var context = new MyDbContext())
+            {
+                foreach (var r in context.Rooms)
+                {
+                    rooms.Add(r);
+                }
+            }
+            foreach(var room in rooms) 
+            {
+                freeRooms.Text += (room.Number + " | ");
+            }
+        }
+        public RoomRegistration(User _currentClient)  
         {
             InitializeComponent();
+            LoadRoomsFromDb();
             clientEnd = _currentClient;
-            hotel = _myHotel;
-            foreach (Room room in _myHotel.listOfRooms) 
-            {
-                freeRooms.Text += room.Number + ", ";
-            }
-            RoomCost.Text = clientEnd.ServicePrice.ToString();
-            
         }
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)
@@ -47,52 +59,62 @@ namespace HotelCW
 
         private void bookBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (clientNameTxt.Text != clientEnd.Name || clientSecondNameTxt.Text != clientEnd.LastName) 
+            try
             {
-                clientNameTxt.Clear();
-                clientSecondNameTxt.Clear();
-                clientPhoneTxt.Clear();
-                clientNumberOfRoomTxt.Clear();
-                clientEmailTxt.Clear();
-                MessageBox.Show("Одно или несколько полей не заполнены или \nзаполнены неправильно.","Invalid input",MessageBoxButton.OK,MessageBoxImage.Warning);
-                return;
-            }
-            clientEnd.Email = clientEmailTxt.Text;
-            clientEnd.PhoneNumber = clientPhoneTxt.Text;
-           
-                foreach (Room room in hotel.listOfRooms)
+                using (var context = new MyDbContext())
                 {
-                    if (clientNumberOfRoomTxt.Text == room.Number)
+                    if (clientNameTxt.Text != clientEnd.Name || clientSecondNameTxt.Text != clientEnd.LastName)
                     {
-                        clientEnd.userRoom = room;
+                        clientNameTxt.Clear();
+                        clientSecondNameTxt.Clear();
+                        clientPhoneTxt.Clear();
+                        clientNumberOfRoomTxt.Clear();
+                        clientEmailTxt.Clear();
+                        MessageBox.Show("Одно или несколько полей не заполнены или \nзаполнены неправильно.", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
                     }
+                    clientEnd.Email = clientEmailTxt.Text;
+                    clientEnd.PhoneNumber = clientPhoneTxt.Text;
+
+                    foreach (Room room in hotel.listOfRooms)
+                    {
+                        if (clientNumberOfRoomTxt.Text == room.Number)
+                        {
+                            clientEnd.userRoom = room;
+                        }
+                    }
+
+                    hotel.listOfRooms.Remove(clientEnd.userRoom);
+
+                    if (clientEnd.userRoom == null)
+                    {
+                        MessageBox.Show("Номер занят или не существует.");
+                        return;
+                    }
+
+
+                    clientEnd.ServicePrice += (clientEnd.Adults * clientEnd.userRoom.Price /** (clientEnd.selectedDateTo.Day - clientEnd.selectedDateFrom.Day)*/);
+
+
+                    string str;
+                    str = "Name: " + clientEnd.Name +
+                        "\nLast name: " + clientEnd.LastName +
+                        "\nPhone: " + clientEnd.PhoneNumber +
+                        "\nEmail: " + clientEnd.Email +
+                        "\nCholdren under 3: " + clientEnd.ChildsUnderThree.ToString() +
+                        "\nAdults: " + clientEnd.Adults.ToString() +
+                        //"\nDate from: " + clientEnd.selectedDateFrom.ToString() +
+                        //"\nDate to: " + clientEnd.selectedDateTo.ToString()+
+                        "\nNumber of room: " + clientEnd.userRoom.Number +
+                        "\nRoom price: " + clientEnd.userRoom.Price.ToString() +
+                        "\nTotal price: " + clientEnd.ServicePrice.ToString();
+                    MessageBox.Show(str);
                 }
-            
-                hotel.listOfRooms.Remove(clientEnd.userRoom);
-
-            if (clientEnd.userRoom == null)
-            {
-                MessageBox.Show("Номер занят или не существует.");
-                return;
             }
-
-
-            clientEnd.ServicePrice += (clientEnd.Adults * clientEnd.userRoom.Price /** (clientEnd.selectedDateTo.Day - clientEnd.selectedDateFrom.Day)*/);
-            
-            
-            string str;
-            str = "Name: " + clientEnd.Name +
-                "\nLast name: " + clientEnd.LastName +
-                "\nPhone: " + clientEnd.PhoneNumber +
-                "\nEmail: " + clientEnd.Email +
-                "\nCholdren under 3: " + clientEnd.ChildsUnderThree.ToString() +
-                "\nAdults: " + clientEnd.Adults.ToString() +
-                //"\nDate from: " + clientEnd.selectedDateFrom.ToString() +
-                //"\nDate to: " + clientEnd.selectedDateTo.ToString()+
-                "\nNumber of room: "+clientEnd.userRoom.Number+
-                "\nRoom price: "+clientEnd.userRoom.Price.ToString()+
-                "\nTotal price: " + clientEnd.ServicePrice.ToString();
-            MessageBox.Show(str);
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
             try
             {

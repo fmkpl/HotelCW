@@ -32,3 +32,6 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\AdminControl.baml
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.csproj.CopyComplete
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.InitialCreate.resources
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.roomType.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedAdmin.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedNullToRoomID.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedDaysInHotel.resources

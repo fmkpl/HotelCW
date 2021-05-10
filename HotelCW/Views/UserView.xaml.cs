@@ -21,52 +21,51 @@ namespace HotelCW.Views
     /// </summary>
     public partial class UserView : UserControl
     {
-
-        Hotel hotel;
-        List<User> clients;
         public UserView()
         {
             InitializeComponent();
-
-            hotel = new Hotel();
-            clients = new List<User>() {
-                new User() {Name="Efim", LastName="Kopyl", Password="1234" },
-                new User() {Name="Sergei", LastName="Valko", Password="1111" },
-                new User() {Name="Kazimir", LastName="Kantor", Password="2222" },
-                new User() {Name="Ivan", LastName="Grishin", Password="0000" }
-            };
-            
         }
         
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            try
+            {
+                string[] x = txtUsername.Text.Split();
 
                 int check = 0;
-            foreach (User client in clients)
-            {
-                if (txtUsername.Text == (client.Name + " " + client.LastName) && txtPassword.Password == client.Password)
+                using (var context = new MyDbContext())
                 {
-                    Registration registration = new Registration(client, hotel);
-                    registration.Show();
-                }
-                else
-                {
-                    check++;
+                    foreach (User u in context.Users)
+                    {
+                        if (x[0] == u.Name && x[1] == u.LastName && txtPassword.Password == u.Password)
+                        {
+                            MessageBox.Show($"You're welcome in our 'Hotel Diamond Plaza', {u.Name} {u.LastName}!");
+                            Registration registration = new Registration(u);
+                            registration.Show();
+                            txtUsername.Clear();
+                            txtPassword.Clear();
+                        }
+                        else if (x[0] != u.Name || x[1] != u.LastName || txtPassword.Password != u.Password)
+                        {
+                            check++;
+                        }
+                    }
 
+                    if (check == context.Users.Count())
+                    {
+                        MessageBox.Show("Invalid input. \nTry log in again or try to register.", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        txtUsername.Clear();
+                        txtPassword.Clear();
+                        
+                    }
                 }
             }
-            if (check == clients.Count)
+            catch (Exception ex)
             {
-                MessageBox.Show("Wrong input or there is no account with such name. \nTry to register.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                txtPassword.Clear();
-                txtUsername.Clear();
+                MessageBox.Show($"{ex.Message}. Error.", "Oops", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            txtPassword.Clear();
-            txtUsername.Clear();
-            //MessageBox.Show("Invalid input. Try again.");
         }
+
         private void TxtPassword_OnKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key != System.Windows.Input.Key.Enter) return;
@@ -88,16 +87,20 @@ namespace HotelCW.Views
         private void register_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            User newClient = new User();
             string[] x = txtUsername.Text.Split();
-            newClient.Name = x[0];
-            newClient.LastName = x[1];
-            newClient.Password = txtPassword.Password;
-            clients.Add(newClient);
-           
-            Registration registration = new Registration(newClient, hotel);
-            registration.Show();
+            User newUser = new User() 
+            {
+                Name=x[0],
+                LastName=x[1],
+                Password=txtPassword.Password,
+                RoomId=null
+            };
+
+            using (var context = new MyDbContext())
+            {
+                context.Users.Add(newUser);
+                context.SaveChanges();
+            }
         }
     }
 }

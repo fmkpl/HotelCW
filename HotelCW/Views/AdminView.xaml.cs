@@ -20,56 +20,60 @@ namespace HotelCW.Views
     /// Логика взаимодействия для AdminView.xaml
     /// </summary>
     public partial class AdminView : UserControl
-    {
-
-        Hotel hotel;
-        List<User> clients;
-        
+    {   
         public AdminView()
         {
             InitializeComponent();
-            
-            hotel = new Hotel();
-            clients = new List<User>() {
-                new User() {Name="Efim", LastName="Kopyl", Password="1234" },
-                new User() {Name="Sergei", LastName="Valko", Password="1111" },
-                new User() {Name="Kazimir", LastName="Kantor", Password="2222" },
-                new User() {Name="Ivan", LastName="Grishin", Password="0000" }
-            };
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            int check = 0;
-            foreach (User client in clients)
+            try
             {
-                if (txtAdminname.Text == (client.Name + " " + client.LastName) && txtPassword.Password == client.Password)
+                int check = 0;
+                using (var context = new MyDbContext())
                 {
-                    //AdminControl registration = new AdminControl(client, hotel);
-                    //registration.Show();
-                }
-                else
-                {
-                    check++;
+                    foreach (Admin a in context.Admins)
+                    {
+                        if (txtAdminName.Text == a.AdminName && txtPassword.Password == a.AdminPassword && txtControlWord.Password == a.AdminControlword)
+                        {
+                            MessageBox.Show($"You're welcome, {a.AdminName}!");
+                            Admin currentAdmin = new Admin()
+                            {
+                                AdminName = a.AdminName,
+                                AdminPassword = a.AdminPassword,
+                                AdminControlword=a.AdminControlword
+                            };
 
+                            AdminControl adminControl = new AdminControl(currentAdmin);
+                            adminControl.Show();
+                            txtAdminName.Clear();
+                            txtPassword.Clear();
+                            txtControlWord.Clear();
+                        }
+                        else if (txtAdminName.Text != a.AdminName || txtPassword.Password != a.AdminPassword || txtControlWord.Password != a.AdminControlword)
+                        {
+                            check++;
+                        }
+                    }
+
+                    if (check == context.Admins.Count())
+                    {
+                        MessageBox.Show("Invalid input. \nTry log in again or try to register.", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        txtAdminName.Clear();
+                        txtPassword.Clear();
+                        txtControlWord.Clear();
+                    }
                 }
             }
-            if (check == clients.Count)
+            catch(Exception ex) 
             {
-                MessageBox.Show("Wrong input or there is no account with such name. \nTry to register.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                txtPassword.Clear();
-                txtAdminname.Clear();
+                MessageBox.Show($"{ex.Message}. Error.", "Oops", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            txtPassword.Clear();
-            txtAdminname.Clear();
-            //MessageBox.Show("Invalid input. Try again.");
         }
         private void TxtPassword_OnKeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key != System.Windows.Input.Key.Enter) return;
-
-            e.Handled = true;
-            btnSubmit_Click(sender, e);
+            
         }
 
         private void VKlink_Click(object sender, RoutedEventArgs e)
@@ -84,20 +88,23 @@ namespace HotelCW.Views
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
-            User newClient = new User();
-            string[] x = txtAdminname.Text.Split();
-            newClient.Name = x[0];
-            newClient.LastName = x[1];
-            newClient.Password = txtPassword.Password;
-            clients.Add(newClient);
-            MessageBox.Show("Welcome to the hotel!");
-            Registration registration = new Registration(newClient, hotel);
-            registration.Show();
+            Admin newAdmin = new Admin();
+            newAdmin.AdminName = txtAdminName.Text;
+            newAdmin.AdminPassword = txtPassword.Password;
+            newAdmin.AdminControlword = txtControlWord.Password;
+            using(var context = new MyDbContext()) 
+            {
+                context.Admins.Add(newAdmin);
+                context.SaveChanges();
+            }
         }
 
-        private void txtControlword_KeyUp(object sender, KeyEventArgs e)
+        private void txtControlword_OnKeyUp(object sender, KeyEventArgs e)
         {
+            if (e.Key != System.Windows.Input.Key.Enter) return;
 
+            e.Handled = true;
+            btnSubmit_Click(sender, e);
         }
     }
 }

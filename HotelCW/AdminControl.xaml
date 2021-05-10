@@ -34,18 +34,26 @@
                         <TextBlock Text="VIP" FontSize="12"/>
                     </ComboBoxItem>
                 </ComboBox>
-                <Button Content="Add room" Height="50" Width="120" Margin="10" FontSize="20"/>
-                
+                <Button Content="Add room" Height="50" Width="120" Margin="10" FontSize="20" Name="addRoom" Click="addRoom_Click"/>
+
                 <Separator Background="Cyan"/>
 
                 <TextBlock Text="Number of new room:" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete"/>
-                <Button Content="Delete room" Height="50" Width="120" Margin="10" FontSize="20"/>
+                <Button Content="Delete room" Height="50" Width="120" Margin="10" FontSize="20" Name="deleteRoom" Click="deleteRoom_Click"/>
             </StackPanel>
-            <DataGrid Grid.Column="1" x:Name="clientsGrid" AutoGenerateColumns="True">
+            <DataGrid Grid.Column="1" x:Name="clientsDataGrid"
+                      AutoGenerateColumns="True" 
+                      HorizontalGridLinesBrush="DarkGray" 
+                      RowBackground="LightGray" 
+                      AlternatingRowBackground="White">
                 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="Number"/>
+                    <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Price"/>
+                    <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Type"/>
+                </DataGrid.Columns>
             </DataGrid>
-
         </Grid>
     </Border>
 </Window>

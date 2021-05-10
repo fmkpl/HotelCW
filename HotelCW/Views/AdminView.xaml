@@ -17,19 +17,19 @@
             </LinearGradientBrush>
         </Border.Background>
 
-        <StackPanel FocusManager.FocusedElement="{Binding ElementName=txtUsername}" Margin="30" Height="auto">
+        <StackPanel Margin="30" Height="auto">
             <Button Cursor="Hand" Width="auto" Height="30" HorizontalAlignment="Right" Background="Transparent" Content="ENG" Foreground="White" FontSize="20" FontWeight="Bold" BorderThickness="0"></Button>
             <Label Content="Hotel Service" Foreground="WhiteSmoke" FontSize="24"/>
             <Separator Background="AliceBlue"></Separator>
             
             <Label Content="Admin name" Foreground="white" FontSize="17"/>
-            <TextBox Name="txtAdminname" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#EBF2FA"></TextBox>
+            <TextBox Name="txtAdminName" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#EBF2FA"></TextBox>
             
             <Label Content="Password" Foreground="white" FontSize="17"/>
             <PasswordBox Name="txtPassword" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#ebf2fa"></PasswordBox>
             
             <Label Content="Control word" Foreground="white" FontSize="17"/>
-            <PasswordBox Name="txtControlword" KeyUp="txtControlword_KeyUp" Background="#182D3B" FontSize="18" Foreground="#ebf2fa"></PasswordBox>
+            <PasswordBox Name="txtControlWord" KeyUp="txtControlword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#ebf2fa"></PasswordBox>
 
             <Button Cursor="Hand" Name="btnSubmit" Click="btnSubmit_Click" Padding="5" Foreground="#EBF2FA" Background="#182D3B" Content="Log in" Margin="60 30" FontSize="17"></Button>
             <Button Cursor="Hand" Name="register" Click="register_Click" Padding="5" Foreground="#ebf2fa" Background="#182d3b" Content="Sign up" Margin="60 -10" FontSize="17"></Button>

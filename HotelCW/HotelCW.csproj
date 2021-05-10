@@ -79,6 +79,18 @@
     <Compile Include="Migrations\202105091818193_roomType.designer.cs">
       <DependentUpon>202105091818193_roomType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105100818494_addedAdmin.cs" />
+    <Compile Include="Migrations\202105100818494_addedAdmin.designer.cs">
+      <DependentUpon>202105100818494_addedAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101441243_addedNullToRoomID.cs" />
+    <Compile Include="Migrations\202105101441243_addedNullToRoomID.designer.cs">
+      <DependentUpon>202105101441243_addedNullToRoomID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105101602585_addedDaysInHotel.cs" />
+    <Compile Include="Migrations\202105101602585_addedDaysInHotel.designer.cs">
+      <DependentUpon>202105101602585_addedDaysInHotel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Registration.xaml.cs">
@@ -151,6 +163,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105091818193_roomType.resx">
       <DependentUpon>202105091818193_roomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105100818494_addedAdmin.resx">
+      <DependentUpon>202105100818494_addedAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101441243_addedNullToRoomID.resx">
+      <DependentUpon>202105101441243_addedNullToRoomID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105101602585_addedDaysInHotel.resx">
+      <DependentUpon>202105101602585_addedDaysInHotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
