@@ -35,3 +35,6 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.roomTy
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedAdmin.resources
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedNullToRoomID.resources
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedDaysInHotel.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedStatusRoom.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedFieldAnnotations.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.reAdFAnns.resources

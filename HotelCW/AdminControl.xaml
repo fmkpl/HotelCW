@@ -21,12 +21,12 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Vertical" Grid.Column="0">
-                <TextBlock Text="Number of new room:" Foreground="WhiteSmoke" FontSize="20"/>
-                <TextBox x:Name="numberOfNewRoom"/>
-                <TextBlock Text="Price of new room:" Foreground="WhiteSmoke" FontSize="20"/>
-                <TextBox x:Name="priceOfNewRoom"/>
-                <TextBlock Text="Type of new room:" Foreground="WhiteSmoke" FontSize="20"/>
-                <ComboBox x:Name="typeOfNewRoom">
+                <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="numberOfNewRoom" Margin="10 0 10 0"/>
+                <TextBlock Text="Price of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="priceOfNewRoom" Margin="10 0 10 0"/>
+                <TextBlock Text="Type of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <ComboBox x:Name="typeOfNewRoom" Margin="10 0 10 0">
                     <ComboBoxItem>
                         <TextBlock Text="Default" FontSize="12"/>
                     </ComboBoxItem>
@@ -38,20 +38,25 @@
 
                 <Separator Background="Cyan"/>
 
-                <TextBlock Text="Number of new room:" Foreground="WhiteSmoke" FontSize="20"/>
-                <TextBox x:Name="numberOfNewRoomToDelete"/>
+                <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
                 <Button Content="Delete room" Height="50" Width="120" Margin="10" FontSize="20" Name="deleteRoom" Click="deleteRoom_Click"/>
+                <Separator Background="Cyan"/>
+                <Button Content="Update table" Height="50" Width="120" FontSize="20" Name="updateTable" Click="updateTable_Click"/>
+                <Button Name="exitAdmin" Content="Exit" Height="50" Width="120" FontSize="20" Margin="10" Click="exitAdmin_Click"/>
+                <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 30 0 0" Name="enjWorkTxt"/>
             </StackPanel>
             <DataGrid Grid.Column="1" x:Name="clientsDataGrid"
                       AutoGenerateColumns="True" 
                       HorizontalGridLinesBrush="DarkGray" 
                       RowBackground="LightGray" 
                       AlternatingRowBackground="White">
-                
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="Number"/>
                     <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Price"/>
                     <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Type"/>
+                    <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Status"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

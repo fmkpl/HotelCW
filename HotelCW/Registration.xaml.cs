@@ -37,7 +37,6 @@ namespace HotelCW
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
-
         {
             this.Close();
         }
@@ -48,11 +47,29 @@ namespace HotelCW
             {
                 using (var context = new MyDbContext())
                 {
-                    foreach(User user in context.Users) 
+                    //check for free rooms
+                    int check = 0;
+                    foreach (Room room in context.Rooms)
                     {
-                        if (user.Name == currentClient.Name && user.LastName == currentClient.LastName) 
+                        if (room.Status == "Reserved")
                         {
-                            if (user.RoomId != null) 
+                            check++;
+                        }
+                    }
+                    if (check == context.Rooms.Count())
+                    {
+                        MessageBox.Show($"Hotel is full. Sorry(\nOr you already reserved a room.\nCheck your email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    //end check
+
+
+                    //filling client data
+                    foreach (User user in context.Users)
+                    {
+                        if (user.Name == currentClient.Name && user.LastName == currentClient.LastName)
+                        {
+                            if (user.RoomId != null)
                             {
                                 string str = $"You already booked a room. You room is {currentClient.userRoom.Number}.";
                                 MessageBox.Show(str, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -60,12 +77,16 @@ namespace HotelCW
                             }
 
                             user.Adults = adultsCombobox.SelectedIndex + 1;
-                            user.ChildsUnderThree = childrenCombobox.SelectedIndex + 1;
+                            user.ChildsUnderThree = childrenCombobox.SelectedIndex;
+
+                            currentClient.Adults = user.Adults;
+                            currentClient.ChildsUnderThree = user.ChildsUnderThree;
 
                             user.ServicePrice = 0;
+                            currentClient.ServicePrice = 0;
                             if (wakeUp.IsChecked == true)
                             {
-                                user.ServicePrice += (1 * currentClient.Adults);
+                                user.ServicePrice += (1 * user.Adults);
                             }
                             if (fridge.IsChecked == true)
                             {
@@ -93,26 +114,22 @@ namespace HotelCW
 
                             user.DaysInHotel = SelectedDayTo.Value.Day - SelectedDayFrom.Value.Day;
 
+                            currentClient.ServicePrice = user.ServicePrice;
+                            currentClient.DaysInHotel = user.DaysInHotel;
+
                             context.Entry(user).State = EntityState.Modified;
 
-                            RoomRegistration roomRegistration = new RoomRegistration();
+                            RoomRegistration roomRegistration = new RoomRegistration(currentClient);
                             roomRegistration.Show();
                         }
                     }
                     context.SaveChanges();
-                    /*if ()
-                    {
-                        MessageBox.Show("Hotel is full. Sorry(", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }*/
-
-                    
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Данные введены неверно либо не полностью.");
-                return;
+                    MessageBox.Show($"Данные введены неверно либо не полностью. Вы уже сняли номер в отеле.");
+                    return;
             }
         }
     }
