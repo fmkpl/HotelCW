@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="Hotel.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\202105091705173_InitialCreate.cs" />
     <Compile Include="Migrations\202105091705173_InitialCreate.designer.cs">
       <DependentUpon>202105091705173_InitialCreate.cs</DependentUpon>
@@ -112,6 +113,7 @@
     <Compile Include="RoomRegistration.xaml.cs">
       <DependentUpon>RoomRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UnitOfWork.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

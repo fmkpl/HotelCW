@@ -86,15 +86,21 @@ namespace HotelCW.Views
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
-
-            string[] x = txtUsername.Text.Split();
-            User newUser = new User() 
+            try
             {
-                Name=x[0],
-                LastName=x[1],
-                Password=txtPassword.Password,
-                RoomId=null
-            };
+                string[] x = txtUsername.Text.Split();
+                User newUser = new User()
+                {
+                    Name = x[0],
+                    LastName = x[1],
+                    Password = txtPassword.Password,
+                    RoomId = null
+                };
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Here must be your first and last name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
             using (var context = new MyDbContext())
             {
