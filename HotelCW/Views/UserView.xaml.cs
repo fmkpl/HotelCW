@@ -96,17 +96,22 @@ namespace HotelCW.Views
                     Password = txtPassword.Password,
                     RoomId = null
                 };
+            
+
+                using (var context = new MyDbContext())
+                {
+                    context.Users.Add(newUser);
+                    context.SaveChanges();
+                }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Here must be your first and last name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
-            using (var context = new MyDbContext())
-            {
-                context.Users.Add(newUser);
-                context.SaveChanges();
-            }
         }
+        /*private void exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }*/
     }
 }

@@ -43,9 +43,9 @@ namespace HotelCW
                     }
                 }
             }
-            foreach(var room in rooms) 
+            foreach (var room in rooms)
             {
-                freeRooms.Text += (room.Number + " | ");
+                freeRooms.Text += ("\n" + room.Number + " (" + room.Price + ", " + room.Type + ")" + " |");
             }
         }
         public RoomRegistration(User _currentClient)  
@@ -121,7 +121,7 @@ namespace HotelCW
                                 clientEnd.ServicePrice = client.ServicePrice;
 
                                 //sending email
-                                //client.userRoom.roomAdmin.SendEmailToClient(client);
+                                client.userRoom.roomAdmin.SendEmailToClient(client);
 
                                 context.Entry(client).State = EntityState.Modified;
                             }

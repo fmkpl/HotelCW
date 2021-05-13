@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/chrome.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("exchange.png")]
 
 

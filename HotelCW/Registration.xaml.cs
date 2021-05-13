@@ -58,7 +58,7 @@ namespace HotelCW
                     }
                     if (check == context.Rooms.Count())
                     {
-                        MessageBox.Show($"Hotel is full. Sorry(\nOr you already reserved a room.\nCheck your email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Hotel is full. Our excuses.\nOr you've already booked a hotel room.\nCheck your email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                     //end check
@@ -71,7 +71,7 @@ namespace HotelCW
                         {
                             if (user.RoomId != null)
                             {
-                                string str = $"You already booked a room. You room is {currentClient.userRoom.Number}.";
+                                string str = $"You've already booked a hotel room. Your room number is {currentClient.userRoom.Number}.";
                                 MessageBox.Show(str, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                                 return;
                             }
@@ -128,7 +128,7 @@ namespace HotelCW
             }
             catch (Exception ex)
             {
-                    MessageBox.Show($"Данные введены неверно либо не полностью. Вы уже сняли номер в отеле.");
+                    MessageBox.Show($"The data entered is incorrector or incomplete. You'he already booked a hotel room.");
                     return;
             }
         }

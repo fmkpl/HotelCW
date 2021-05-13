@@ -38,24 +38,25 @@ namespace HotelCW
 
         public void SendEmailToClient(User client) 
         {
-            // отправитель - устанавливаем адрес и отображаемое в письме имя
-            MailAddress from = new MailAddress("efimberg22@gmail.com", AdminName);
-            // кому отправляем
-            MailAddress to = new MailAddress(client.Email);
-            // создаем объект сообщения
-            MailMessage m = new MailMessage(from, to);
-            // тема письма
-            m.Subject = "Accept";
-            // текст письма
-            m.Body = $"<h2>Your room number is {client.userRoom.Number}.</h2>";
-            // письмо представляет код html
-            m.IsBodyHtml = true;
-            // адрес smtp-сервера и порт, с которого будем отправлять письмо
-            SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 25);
-            // логин и пароль
-            smtp.Credentials = new NetworkCredential("efimberg22@gmail.com", "LLW-XNG-Nny-3Gw");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
+            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Administrator " + AdminName);
+            MailAddress toAddress = new MailAddress(client.Email,"Dear, " + client.Name + " " + client.LastName);
+
+
+            using (MailMessage mailMessage = new MailMessage(fromMailAddress, toAddress))
+            using (SmtpClient smtpClient = new SmtpClient())
+            {
+                mailMessage.Subject = "Accept";
+                mailMessage.Body = $"Your room number is {client.userRoom.Number}. Price to pay = {client.ServicePrice}$\nWelcome to the hotel!\nAny questions? - Visit reception.\nYou can also leave a review after log-in in registration window.\nHave a good stay! =)";
+
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(fromMailAddress.Address, "LLW-XNG-Nny-3Gw");
+
+                smtpClient.Send(mailMessage);
+            }
 
         }
 

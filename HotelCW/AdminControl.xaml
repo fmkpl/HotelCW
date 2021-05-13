@@ -12,8 +12,8 @@
         Width="800"
         MinWidth="800"
         MaxWidth="1000"
-        Background="#05668D">
-    <Border Margin="30" Background="MidnightBlue">
+        Background="Transparent">
+    <Border Margin="30" Background="MidnightBlue" CornerRadius="25">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -26,7 +26,7 @@
                 <TextBlock Text="Price of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="priceOfNewRoom" Margin="10 0 10 0"/>
                 <TextBlock Text="Type of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
-                <ComboBox x:Name="typeOfNewRoom" Margin="10 0 10 0">
+                <ComboBox x:Name="typeOfNewRoom" Margin="10 0 10 0" Cursor="Hand">
                     <ComboBoxItem>
                         <TextBlock Text="Default" FontSize="12"/>
                     </ComboBoxItem>
@@ -34,17 +34,54 @@
                         <TextBlock Text="VIP" FontSize="12"/>
                     </ComboBoxItem>
                 </ComboBox>
-                <Button Content="Add room" Height="50" Width="120" Margin="10" FontSize="20" Name="addRoom" Click="addRoom_Click"/>
+                <Button Background="Transparent"
+                        Height="50"
+                        Width="120" 
+                        Margin="10" 
+                        FontSize="20"
+                        Name="addRoom"
+                        Click="addRoom_Click"
+                        BorderThickness="0">
+                    <Image Source="plus.png"/>
+                </Button>
 
                 <Separator Background="Cyan"/>
 
                 <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
-                <Button Content="Delete room" Height="50" Width="120" Margin="10" FontSize="20" Name="deleteRoom" Click="deleteRoom_Click"/>
+                <Button Background="Transparent"
+                        Height="50"
+                        Width="120"
+                        Margin="10"
+                        FontSize="20"
+                        Name="deleteRoom" 
+                        Click="deleteRoom_Click"
+                        BorderThickness="0">
+                    <Image Source="delete.png"/>
+                </Button>
                 <Separator Background="Cyan"/>
-                <Button Content="Update table" Height="50" Width="120" FontSize="20" Name="updateTable" Click="updateTable_Click"/>
-                <Button Name="exitAdmin" Content="Exit" Height="50" Width="120" FontSize="20" Margin="10" Click="exitAdmin_Click"/>
-                <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 30 0 0" Name="enjWorkTxt"/>
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <Button Background="Transparent"
+                        BorderThickness="0"
+                        Height="50"
+                        Width="120"
+                        FontSize="20" 
+                        Name="updateTable"
+                        Click="updateTable_Click">
+                        <Image Source="exchange.png"/>
+                    </Button>
+                    <Button Name="exitAdmin"
+                        Background="Transparent"
+                        Width="120"
+                        Height="50"
+                        FontSize="20"
+                        
+                        Click="exitAdmin_Click"
+                        BorderThickness="0">
+                        <Image Source="logout.png"/>
+                    </Button>
+                </StackPanel>
+                <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 0 10 0" Name="enjWorkTxt"/>
             </StackPanel>
             <DataGrid Grid.Column="1" x:Name="clientsDataGrid"
                       AutoGenerateColumns="True" 

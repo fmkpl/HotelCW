@@ -12,7 +12,7 @@
         Width="550" 
         MinWidth="550"
         MaxWidth="800"
-        Background="#05668D">
+        Background="Transparent">
     <Grid Name="startWindow">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

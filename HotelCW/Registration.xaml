@@ -9,13 +9,31 @@
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
             <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Welcome!" Name="welcome"></Label>
-            <Button Cursor="Hand" Width="auto" Height="30" HorizontalAlignment="Right" Background="Transparent" Content="ENG" Foreground="White" FontSize="20" FontWeight="Bold" BorderThickness="0" Margin="0 -28 0 0"></Button>
+            <Button Cursor="Hand"
+                    Width="auto" 
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    Background="Transparent" 
+                    Name="logoutBtn"
+                    Click="logoutBtn_Click"
+                    Foreground="White" 
+                    FontSize="20"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Margin="0 -28 0 0">
+                <Image Source="logout.png"/>
+            </Button>
 
-            <Button Cursor="Hand" Margin="10" Name="logoutBtn" Click="logoutBtn_Click" Content="Exit" FontSize="15"></Button>
+            <!--<Button Cursor="Hand"
+                    Margin="10"
+                    Name="logoutBtn"
+                    Click="logoutBtn_Click"
+                    Content="Exit"
+                    FontSize="15"></Button>-->
             
             <!--calendar-->
 
-            <Label Margin="10 0" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
+            <Label Margin="10 5" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
