@@ -106,5 +106,16 @@ namespace HotelCW.Views
             e.Handled = true;
             btnSubmit_Click(sender, e);
         }
+
+        private void GithubLink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/fmkpl");
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = Window.GetWindow(this);
+            parent.Close();
+        }
     }
 }

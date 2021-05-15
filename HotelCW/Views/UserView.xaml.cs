@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelCW.DBPatterns;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -44,6 +45,7 @@ namespace HotelCW.Views
                             registration.Show();
                             txtUsername.Clear();
                             txtPassword.Clear();
+                            return;
                         }
                         else if (x[0] != u.Name || x[1] != u.LastName || txtPassword.Password != u.Password)
                         {
@@ -100,7 +102,8 @@ namespace HotelCW.Views
 
                 using (var context = new MyDbContext())
                 {
-                    context.Users.Add(newUser);
+                    UserRepository userRepository = new UserRepository(context);
+                    userRepository.Create(newUser);
                     context.SaveChanges();
                 }
             }
@@ -109,9 +112,16 @@ namespace HotelCW.Views
                 MessageBox.Show("Here must be your first and last name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        /*private void exit_Click(object sender, RoutedEventArgs e)
-        {
 
-        }*/
+        private void GithubLink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/fmkpl");
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = Window.GetWindow(this);
+            parent.Close();
+        }
     }
 }

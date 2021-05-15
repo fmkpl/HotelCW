@@ -19,6 +19,18 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Button Cursor="Hand" 
+                Width="auto"
+                Height="30" 
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Background="Transparent"
+                Name="exit"            
+                Click="exit_Click"
+                BorderThickness="0">
+            <Image Source="power.png"/>
+        </Button>
         <ContentControl Content="{Binding SelectedViewModel}"/>
         <Label Name="welcome" FontFamily="Mathcad UniMath" Content="Welcome" HorizontalAlignment="Center" FontSize="60" Foreground="White" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">

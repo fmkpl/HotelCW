@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelCW.DBPatterns;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -80,6 +81,7 @@ namespace HotelCW
             {
                 using(var context = new MyDbContext()) 
                 {
+                    RoomRepository roomRepository = new RoomRepository(context);
                     Room newRoomToAdd = new Room()
                     {
                         Number = numberOfNewRoom.Text,
@@ -96,7 +98,6 @@ namespace HotelCW
                                 numberOfNewRoom.Clear();
                                 priceOfNewRoom.Clear();
                                 MessageBox.Show("This room is already in hotel.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                                return;
                             }
                         }
                         if (admin.AdminName == currentAdmin.AdminName &&
@@ -108,7 +109,7 @@ namespace HotelCW
                             admin.Rooms.Add(newRoomToAdd);
                         }
                     }
-                    context.Rooms.Add(newRoomToAdd);
+                    roomRepository.Create(newRoomToAdd);
                     clientsDataGrid.Items.Add(newRoomToAdd);
                     context.SaveChanges();
                 }
@@ -130,6 +131,7 @@ namespace HotelCW
             {
                 using (var context = new MyDbContext())
                 {
+                    RoomRepository roomRepository = new RoomRepository(context);
                     foreach (Room room in context.Rooms)
                     {
                         if (room.Number == numberOfNewRoomToDelete.Text)
@@ -137,6 +139,7 @@ namespace HotelCW
                             room.roomAdmin.Rooms.Remove(room);
                             foreach(var user in room.Users) 
                             {
+                                user.userRoom.roomAdmin.SendEmailAboutEviction(user);
                                 user.RoomId = null;
                                 user.Adults = null;
                                 user.ChildsUnderThree = null;
@@ -144,12 +147,16 @@ namespace HotelCW
                                 user.PhoneNumber = null;
                                 user.Email = null;
                                 user.DaysInHotel = null;
-
                                 user.userRoom = null;
                             }
                             context.Entry(room).State = EntityState.Deleted;
+                            
                         }
-                        else { }
+                        else 
+                        {
+                             
+                        }
+
                     }
                     context.SaveChanges();
 

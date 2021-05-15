@@ -60,5 +60,28 @@ namespace HotelCW
 
         }
 
+        public void SendEmailAboutEviction(User client) 
+        {
+            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Administrator " + AdminName);
+            MailAddress toAddress = new MailAddress(client.Email, "Dear, " + client.Name + " " + client.LastName);
+
+
+            using (MailMessage mailMessage = new MailMessage(fromMailAddress, toAddress))
+            using (SmtpClient smtpClient = new SmtpClient())
+            {
+                mailMessage.Subject = "Eviction";
+                mailMessage.Body = $"You were evicted from {client.userRoom.Number} room. Any questions? - Visit reception.\nYou can also leave a review after log-in in registration window.\nWe were glad to see you in our hotel!";
+
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(fromMailAddress.Address, "LLW-XNG-Nny-3Gw");
+
+                smtpClient.Send(mailMessage);
+            }
+
+        }
     }
 }

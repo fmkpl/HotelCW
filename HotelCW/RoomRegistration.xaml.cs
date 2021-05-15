@@ -45,7 +45,7 @@ namespace HotelCW
             }
             foreach (var room in rooms)
             {
-                freeRooms.Text += ("\n" + room.Number + " (" + room.Price + ", " + room.Type + ")" + " |");
+                freeRooms.Text += ("\n" + room.Number + " (" + room.Price + "$, " + room.Type + ")" + " |");
             }
         }
         public RoomRegistration(User _currentClient)  
@@ -53,6 +53,7 @@ namespace HotelCW
             InitializeComponent();
             LoadRoomsFromDb();
             clientEnd = _currentClient;
+            this.DataContext = _currentClient;
         }
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)

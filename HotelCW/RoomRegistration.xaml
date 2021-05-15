@@ -59,22 +59,74 @@
 
                 <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="0">
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Name" TextAlignment="Center"></TextBlock>
-                    <TextBox Name="clientNameTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientNameTxt_TextChanged"></TextBox>
+                    <TextBox Name="clientNameTxt" 
+                             FontSize="18"
+                             Padding="10"
+                             Margin="0 10"
+                             TextChanged="clientNameTxt_TextChanged">
+                        <TextBox.Text>
+                            <Binding Path="Name">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Last name" TextAlignment="Center"></TextBlock>
-                    <TextBox Name="clientSecondNameTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientSecondNameTxt_TextChanged"></TextBox>
+                    <TextBox Name="clientSecondNameTxt" 
+                             FontSize="18"
+                             Padding="10"
+                             Margin="0 10"
+                             TextChanged="clientSecondNameTxt_TextChanged">
+                        <TextBox.Text>
+                            <Binding Path="LastName">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
 
                 <!--phone and email-->
 
                 <StackPanel Margin="10 0" Grid.Column="1" Grid.Row="0">
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Phone number" TextAlignment="Center"></TextBlock>
-                    <TextBox Name="clientPhoneTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientPhoneTxt_TextChanged"></TextBox>
+                    <TextBox Name="clientPhoneTxt"
+                             FontSize="18"
+                             Padding="10"
+                             Margin="0 10"
+                             TextChanged="clientPhoneTxt_TextChanged">
+                        <TextBox.Text>
+                            <Binding Path="PhoneNumber">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Email" TextAlignment="Center"></TextBlock>
-                    <TextBox Name="clientEmailTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientEmailTxt_TextChanged"></TextBox>
+                    <TextBox Name="clientEmailTxt"
+                             FontSize="18" 
+                             Padding="10"
+                             Margin="0 10" 
+                             TextChanged="clientEmailTxt_TextChanged">
+                        <TextBox.Text>
+                            <Binding Path="Email">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
                     <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Room number" TextAlignment="Center"></TextBlock>
-                    <TextBox Name="clientNumberOfRoomTxt" FontSize="18" Padding="10" Margin="0 10" TextChanged="clientNumberOfRoomTxt_TextChanged"></TextBox>
+                    <TextBox Name="clientNumberOfRoomTxt"
+                             FontSize="18"
+                             Padding="10"
+                             Margin="0 10"
+                             TextChanged="clientNumberOfRoomTxt_TextChanged"></TextBox>
                 </StackPanel>
                 <!--number of room-->
 
@@ -89,11 +141,15 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
-                <TextBlock Name="RoomID" Padding="10" Grid.Column="0" Text="{Binding ClientOstatecznyNrPokoju}" Foreground="AliceBlue"></TextBlock>
-                <TextBlock Name="RoomCost" Padding="10" Grid.Column="1" Text="{Binding ClientCenaPokoju}" Foreground="AliceBlue"></TextBlock>
+                <TextBlock Name="RoomID" Padding="10" Grid.Column="0" Foreground="AliceBlue"></TextBlock>
+                <TextBlock Name="RoomCost" Padding="10" Grid.Column="1" Foreground="AliceBlue"></TextBlock>
                 <TextBlock Name="RoomFloor" Padding="10" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" Text="Make sure that the price and the room number match." Background="RoyalBlue" Foreground="AliceBlue"></TextBlock>
 
-                <Button Cursor="Hand" Click="bookBtn_Click" Grid.Column="3" Name="bookBtn" Content="Reserve now"></Button>
+                <Button Cursor="Hand"
+                        Click="bookBtn_Click"
+                        Grid.Column="3" 
+                        Name="bookBtn"
+                        Content="Reserve now"></Button>
 
             </Grid>
         </StackPanel>

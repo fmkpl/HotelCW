@@ -31,14 +31,35 @@ namespace HotelCW
 
         private void log_in_as_admin_Click(object sender, RoutedEventArgs e)
         {
-            if (startWindow.Children.Contains(welcome) == false) { return; } else if(startWindow.Children.Contains(welcome)==true) { startWindow.Children.Remove(welcome); }
+            if (!startWindow.Children.Contains(welcome) && !startWindow.Children.Contains(exit)) 
+            {
+                return;
+            }
+            else if(startWindow.Children.Contains(welcome) && startWindow.Children.Contains(exit)) 
+            {
+                startWindow.Children.Remove(welcome);
+                startWindow.Children.Remove(exit);
+            }
             
         }
 
         private void log_in_as_user_Click(object sender, RoutedEventArgs e)
         {
-            if (startWindow.Children.Contains(welcome) == false) { return; } else if(startWindow.Children.Contains(welcome)==true) { startWindow.Children.Remove(welcome); }
+            if (!startWindow.Children.Contains(welcome) && !startWindow.Children.Contains(exit)) 
+            {
+                return;
+            }
+            else if(startWindow.Children.Contains(welcome) && startWindow.Children.Contains(exit)) 
+            {
+                startWindow.Children.Remove(welcome);
+                startWindow.Children.Remove(exit);
+            }
             
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
