@@ -98,6 +98,7 @@ namespace HotelCW
                                 numberOfNewRoom.Clear();
                                 priceOfNewRoom.Clear();
                                 MessageBox.Show("This room is already in hotel.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
                             }
                         }
                         if (admin.AdminName == currentAdmin.AdminName &&

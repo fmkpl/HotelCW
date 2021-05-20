@@ -83,5 +83,50 @@ namespace HotelCW
             }
 
         }
+
+        public static string HashAdminPassword(string userPassword)
+        {
+            //ceaser shifr
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            string digits = "1234567890";
+            string result = "";
+            for (int i = 0; i < userPassword.Length; i++)
+            {
+                for (int j = 0; j < alphabet.Length - 2; j++)
+                {
+                    if (userPassword[i] == 'y')
+                    {
+                        result += 'a';
+                    }
+                    if (userPassword[i] == 'z')
+                    {
+                        result += 'b';
+                    }
+                    if (userPassword[i] == alphabet[j])
+                    {
+                        result += alphabet[j + 2];
+                    }
+                }
+            }
+            for (int i = 0; i < userPassword.Length; i++)
+            {
+                for (int j = 0; j < digits.Length - 2; j++)
+                {
+                    if (userPassword[i] == '9')
+                    {
+                        result += '1';
+                    }
+                    if (userPassword[i] == '0')
+                    {
+                        result += '2';
+                    }
+                    if (userPassword[i] == digits[j])
+                    {
+                        result += digits[j + 2];
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

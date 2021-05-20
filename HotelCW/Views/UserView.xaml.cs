@@ -38,14 +38,13 @@ namespace HotelCW.Views
                 {
                     foreach (User u in context.Users)
                     {
-                        if (x[0] == u.Name && x[1] == u.LastName && txtPassword.Password == u.Password)
+                        if (x[0] == u.Name && x[1] == u.LastName && User.HashUserPassword(txtPassword.Password) == u.Password)
                         {
                             MessageBox.Show($"You're welcome in our 'Hotel Diamond Plaza', {u.Name} {u.LastName}!");
                             Registration registration = new Registration(u);
                             registration.Show();
                             txtUsername.Clear();
                             txtPassword.Clear();
-                            return;
                         }
                         else if (x[0] != u.Name || x[1] != u.LastName || txtPassword.Password != u.Password)
                         {
@@ -95,10 +94,10 @@ namespace HotelCW.Views
                 {
                     Name = x[0],
                     LastName = x[1],
-                    Password = txtPassword.Password,
+                    Password = User.HashUserPassword(txtPassword.Password),
                     RoomId = null
                 };
-            
+
 
                 using (var context = new MyDbContext())
                 {
@@ -110,7 +109,7 @@ namespace HotelCW.Views
             catch (Exception ex)
             {
                 MessageBox.Show("Here must be your first and last name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            } 
         }
 
         private void GithubLink_Click(object sender, RoutedEventArgs e)

@@ -35,7 +35,7 @@ namespace HotelCW.Views
                 {
                     foreach (Admin a in context.Admins)
                     {
-                        if (txtAdminName.Text == a.AdminName && txtPassword.Password == a.AdminPassword && txtControlWord.Password == a.AdminControlword)
+                        if (txtAdminName.Text == a.AdminName && Admin.HashAdminPassword(txtPassword.Password) == a.AdminPassword && txtControlWord.Password == a.AdminControlword)
                         {
                             MessageBox.Show($"You're welcome, {a.AdminName}!");
                             Admin currentAdmin = new Admin()
@@ -90,7 +90,7 @@ namespace HotelCW.Views
         {
             Admin newAdmin = new Admin();
             newAdmin.AdminName = txtAdminName.Text;
-            newAdmin.AdminPassword = txtPassword.Password;
+            newAdmin.AdminPassword = Admin.HashAdminPassword(txtPassword.Password);
             newAdmin.AdminControlword = txtControlWord.Password;
             using(var context = new MyDbContext()) 
             {

@@ -13,7 +13,7 @@
         MinWidth="800"
         MaxWidth="1000"
         Background="Transparent">
-    <Border Margin="30" Background="MidnightBlue" CornerRadius="25">
+    <Border Margin="30" Background="MidnightBlue" CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>

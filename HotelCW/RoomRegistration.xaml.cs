@@ -45,7 +45,8 @@ namespace HotelCW
             }
             foreach (var room in rooms)
             {
-                freeRooms.Text += ("\n" + room.Number + " (" + room.Price + "$, " + room.Type + ")" + " |");
+                string str = "Room number: " + room.Number + ", Price/night: " + room.Price.ToString() + "$, " + room.Type;
+                listOfFreeRooms.Items.Add(str);
             }
         }
         public RoomRegistration(User _currentClient)  
