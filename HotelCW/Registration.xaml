@@ -5,7 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelCW"
         mc:Ignorable="d"
-        Title="Registration" Height="auto" MinHeight="700" Width="500" MinWidth="500" MaxWidth="800" MaxHeight="1000">
+        Title="Registration" 
+        Height="auto" 
+        MinHeight="815" 
+        Width="500" 
+        MinWidth="500" 
+        MaxWidth="800"
+        MaxHeight="1000"
+        d:DesignHeight="815">
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
             <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Welcome!" Name="welcome"></Label>
@@ -115,6 +122,31 @@
 
             <Button Cursor="Hand" Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Check availability" FontSize="15"></Button>
 
+
+            <Separator Background="Cyan"/>
+
+            <StackPanel Margin="10 0">
+                <TextBlock Text="You can leave review right here:"
+                       Foreground="WhiteSmoke"
+                       FontSize="20"
+                           Height="auto"
+                           Padding="4"
+                           HorizontalAlignment="Left"
+                       Background="#182D3B"
+                           Width="400"/>
+                <TextBox Width="400"
+                         Margin="0 5"
+                         FontSize="14"
+                         Height="100"
+                         Name="commentBody"
+                         HorizontalAlignment="Left"/>
+                <Button Content="Send review"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        Padding="3"
+                        Name="sendReview"
+                        Click="sendReview_Click"></Button>
+            </StackPanel>
             <!--end of availability check-->
         </StackPanel>
     </Border>

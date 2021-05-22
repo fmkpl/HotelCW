@@ -13,7 +13,9 @@
         MinWidth="800"
         MaxWidth="1000"
         Background="Transparent">
-    <Border Margin="30" Background="MidnightBlue" CornerRadius="15">
+    <Border Margin="30"
+            Background="MidnightBlue"
+            CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -94,7 +96,8 @@
                     <Image Source="delete.png"/>
                 </Button>
                 <Separator Background="Cyan"/>
-                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 5 0 0">
                     <Button Background="Transparent"
                         BorderThickness="0"
                         FontSize="20" 
@@ -147,19 +150,39 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            <DataGrid Grid.Column="1" x:Name="clientsDataGrid"
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Grid.Row="0" 
+                          x:Name="clientsDataGrid"
                       AutoGenerateColumns="True" 
                       HorizontalGridLinesBrush="DarkGray" 
                       RowBackground="LightGray" 
                       AlternatingRowBackground="White">
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="Number"/>
-                    <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Price"/>
-                    <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Type"/>
-                    <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Status"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="Number"/>
+                        <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Price"/>
+                        <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Type"/>
+                        <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Status"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Row="1"
+                          AutoGenerateColumns="True" 
+                      HorizontalGridLinesBrush="DarkGray" 
+                      RowBackground="LightGray" 
+                      AlternatingRowBackground="White"
+                          x:Name="moreAboutClients">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Width="*" Header="First name"/>
+                        <DataGridTextColumn Binding="{Binding Path=LastName}" Width="*" Header="Last name"/>
+                        <DataGridTextColumn Binding="{Binding Path=userRoom.Number}" Width="*" Header="Room number"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

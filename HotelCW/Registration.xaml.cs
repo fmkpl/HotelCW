@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HotelCW.DBPatterns;
 
 namespace HotelCW
 {
@@ -130,6 +131,38 @@ namespace HotelCW
             {
                     MessageBox.Show($"The data entered is incorrector or incomplete. You'he already booked a hotel room.");
                     return;
+            }
+        }
+
+        private void sendReview_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (commentBody.Text.Length < 5)
+                {
+                    MessageBox.Show("Empty field.\nPleasy type your review before sending.", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+                else
+                {
+                    using (var context = new MyDbContext())
+                    {
+                        CommentRepository commentRepository = new CommentRepository(context);
+                        Comment comment = new Comment()
+                        {
+                            UserMain = currentClient,
+                            Body = commentBody.Text
+                        };
+                        commentRepository.Create(comment);
+                        context.SaveChanges();
+                    }
+                    commentBody.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");
+                return;
             }
         }
     }

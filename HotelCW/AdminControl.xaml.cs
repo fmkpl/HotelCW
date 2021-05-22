@@ -26,12 +26,14 @@ namespace HotelCW
         {
             InitializeComponent();
             LoadDataFromDb();
+            LoadAllAboutUsersFromDB();
         }
 
         public AdminControl(Admin _currentAdmin) 
         {
             InitializeComponent();
             LoadDataFromDb();
+            LoadAllAboutUsersFromDB();
             currentAdmin = _currentAdmin;
             enjWorkTxt.Text += (" " + currentAdmin.AdminName + "!");
         }
@@ -39,11 +41,16 @@ namespace HotelCW
         public void UpdateDataGrid() 
         {
             clientsDataGrid.Items.Clear();
+            moreAboutClients.Items.Clear();
             using(var context = new MyDbContext()) 
             {
-                foreach(Room room in context.Rooms) 
+                foreach(Room room in context.Rooms)
                 {
                     clientsDataGrid.Items.Add(room);
+                }
+                foreach (User user in context.Users)
+                {
+                    moreAboutClients.Items.Add(user);
                 }
             }
         }
@@ -64,7 +71,6 @@ namespace HotelCW
                         r.Status = "Reserved";
                     }
                     context.Entry(r).State = EntityState.Modified;
-                    //rooms.Add(r);
                 }
                 context.SaveChanges();
                 rooms.AddRange(context.Rooms);
@@ -72,6 +78,19 @@ namespace HotelCW
             foreach (var room in rooms)
             {
                 clientsDataGrid.Items.Add(room);
+            }
+        }
+
+        public void LoadAllAboutUsersFromDB() 
+        {
+            List<User> usersList = new List<User>();
+            using (var context = new MyDbContext())
+            {
+                usersList.AddRange(context.Users);
+            }
+            foreach (var user in usersList)
+            {
+                moreAboutClients.Items.Add(user);
             }
         }
 

@@ -70,7 +70,9 @@
       <DependentUpon>AdminControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="DBPatterns\AdminRepository.cs" />
+    <Compile Include="DBPatterns\CommentRepository.cs" />
     <Compile Include="DBPatterns\IRepository.cs" />
     <Compile Include="DBPatterns\RoomRepository.cs" />
     <Compile Include="DBPatterns\UnitOfWork.cs" />
@@ -106,6 +108,18 @@
     <Compile Include="Migrations\202105111744427_reAdFAnns.cs" />
     <Compile Include="Migrations\202105111744427_reAdFAnns.designer.cs">
       <DependentUpon>202105111744427_reAdFAnns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105221502512_added comments.cs" />
+    <Compile Include="Migrations\202105221502512_added comments.designer.cs">
+      <DependentUpon>202105221502512_added comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105221823126_added comments%28again%29.cs" />
+    <Compile Include="Migrations\202105221823126_added comments%28again%29.designer.cs">
+      <DependentUpon>202105221823126_added comments%28again%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105221935197_modified comments.cs" />
+    <Compile Include="Migrations\202105221935197_modified comments.designer.cs">
+      <DependentUpon>202105221935197_modified comments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
@@ -197,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105111744427_reAdFAnns.resx">
       <DependentUpon>202105111744427_reAdFAnns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105221502512_added comments.resx">
+      <DependentUpon>202105221502512_added comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105221823126_added comments%28again%29.resx">
+      <DependentUpon>202105221823126_added comments%28again%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105221935197_modified comments.resx">
+      <DependentUpon>202105221935197_modified comments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
