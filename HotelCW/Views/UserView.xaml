@@ -18,15 +18,37 @@
 
         <StackPanel Margin="30" Height="auto">
 
-            <Button Cursor="Hand" 
-                Width="auto"
-                Height="30" 
+            <Button Cursor="Hand"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
                 Background="Transparent"
                 Name="exit"            
                 Click="exit_Click"
                 BorderThickness="0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Setters>
+                            <Setter Property="Width" Value="auto"/>
+                            <Setter Property="Height" Value="30"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Width" Value="34"/>
+                                <Setter Property="Height" Value="34"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="Click">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.4" To="45" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.4" To="45" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
                 <Image Source="power.png"/>
             </Button>
 
@@ -43,47 +65,122 @@
                     Name="btnSubmit"
                     Click="btnSubmit_Click"
                     Padding="5" 
-                    Foreground="#EBF2FA"
+                    
                     Background="#182D3B"
                     Content="Log in"
                     Margin="60 30"
-                    FontSize="17"></Button>
+                    FontSize="17">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Setters>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Cursor="Hand" 
                     Name="register"
                     Click="register_Click"
                     Padding="5"
-                    Foreground="#ebf2fa"
+                    
                     Background="#182d3b"
                     Content="Sign up"
                     Margin="60 -10"
-                    FontSize="17"></Button>
+                    FontSize="17">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Setters>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 25">
                 <Button Cursor="Hand"
                         Name="VKlink"
                         Click="VKlink_Click"
-                        Width="40" Height="40"
                         Background="Transparent"
                         BorderThickness="0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="40"/>
+                                <Setter Property="Height" Value="40"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <Image Source="vk.png"/>
                 </Button>
                 <Button Cursor="Hand" 
                         Name="MetanitLink"
                         Click="MetanitLink_Click" 
-                        Width="40" 
-                        Height="40"
                         Background="Transparent"
                         BorderThickness="0"
                         Margin="5 0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="40"/>
+                                <Setter Property="Height" Value="40"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <Image Source="chrome.png"/>
                 </Button>
                 <Button Cursor="Hand" 
                         Name="GithubLink"
                         Click="GithubLink_Click" 
-                        Width="40" 
-                        Height="40"
                         Background="Transparent"
                         BorderThickness="0"
                         Margin="5 0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="40"/>
+                                <Setter Property="Height" Value="40"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="30" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <Image Source="github5.png"/>
                 </Button>
             </StackPanel>

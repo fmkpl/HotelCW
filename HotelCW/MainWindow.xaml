@@ -19,9 +19,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Cursor="Hand" 
-                Width="auto"
-                Height="30" 
+        <Button Cursor="Hand"  
                 Margin="5"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
@@ -30,6 +28,30 @@
                 Click="exit_Click"
                 BorderThickness="0">
             <Image Source="power.png"/>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Setters>
+                        <Setter Property="Width" Value="auto"/>
+                        <Setter Property="Height" Value="30"/>
+                    </Style.Setters>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Width" Value="34"/>
+                            <Setter Property="Height" Value="34"/>
+                        </Trigger>
+                        <EventTrigger RoutedEvent="Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.4" To="45" AutoReverse="True"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.4" To="45" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
         <ContentControl Content="{Binding SelectedViewModel}"/>
         <Label Name="welcome" FontFamily="Mathcad UniMath" Content="Welcome" HorizontalAlignment="Center" FontSize="60" Foreground="White" VerticalAlignment="Center"/>
@@ -40,24 +62,50 @@
                     Command="{Binding UpdateViewComand}" 
                     CommandParameter="User"
                     Background="Black" 
-                    Foreground="WhiteSmoke"
-                    FontSize="24"
                     FontFamily="Mathcad UniMath"
                     Name="log_in_as_user"
                     Click="log_in_as_user_Click"
-                    Cursor="Hand"/>
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Setters>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="FontSize" Value="24"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Margin="10"
                     Width="200"
                     Content="Log in as admin"
                     Command="{Binding UpdateViewComand}" 
                     CommandParameter="Admin" 
                     Background="Black"
-                    Foreground="WhiteSmoke"
-                    FontSize="24" 
                     FontFamily="Mathcad UniMath"
                     Name="log_in_as_admin"
                     Click="log_in_as_admin_Click"
-                    Cursor="Hand"/>
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Setters>
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            <Setter Property="FontSize" Value="24"/>
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

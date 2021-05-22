@@ -20,6 +20,8 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
+            <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 0 10 5" Name="enjWorkTxt"/>
+
             <StackPanel Orientation="Vertical" Grid.Column="0">
                 <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoom" Margin="10 0 10 0"/>
@@ -35,13 +37,29 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <Button Background="Transparent"
-                        Height="50"
-                        Width="120" 
                         Margin="10" 
                         FontSize="20"
                         Name="addRoom"
                         Click="addRoom_Click"
                         BorderThickness="0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Height" Value="50"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <Image Source="plus.png"/>
                 </Button>
 
@@ -50,38 +68,84 @@
                 <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
                 <Button Background="Transparent"
-                        Height="50"
-                        Width="120"
                         Margin="10"
                         FontSize="20"
                         Name="deleteRoom" 
                         Click="deleteRoom_Click"
                         BorderThickness="0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Height" Value="50"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <Image Source="delete.png"/>
                 </Button>
                 <Separator Background="Cyan"/>
                 <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                     <Button Background="Transparent"
                         BorderThickness="0"
-                        Height="50"
-                        Width="120"
                         FontSize="20" 
                         Name="updateTable"
                         Click="updateTable_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Setters>
+                                    <Setter Property="Width" Value="120"/>
+                                    <Setter Property="Height" Value="50"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <EventTrigger RoutedEvent="Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="110" AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                         <Image Source="exchange.png"/>
                     </Button>
                     <Button Name="exitAdmin"
                         Background="Transparent"
-                        Width="120"
-                        Height="50"
                         FontSize="20"
-                        
                         Click="exitAdmin_Click"
                         BorderThickness="0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Setters>
+                                    <Setter Property="Width" Value="120"/>
+                                    <Setter Property="Height" Value="50"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <EventTrigger RoutedEvent="Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="110" AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                         <Image Source="logout.png"/>
                     </Button>
                 </StackPanel>
-                <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 0 10 0" Name="enjWorkTxt"/>
             </StackPanel>
             <DataGrid Grid.Column="1" x:Name="clientsDataGrid"
                       AutoGenerateColumns="True" 
