@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Registration" 
         Height="auto" 
-        MinHeight="815" 
+        MinHeight="880" 
         Width="500" 
         MinWidth="500" 
         MaxWidth="800"
         MaxHeight="1000"
-        d:DesignHeight="815">
+        d:DesignHeight="880">
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
             <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Welcome!" Name="welcome"></Label>
@@ -125,10 +125,11 @@
 
             <Separator Background="Cyan"/>
 
-            <StackPanel Margin="10 0">
+            <StackPanel Margin="10 0" Name="commBlock">
                 <TextBlock Text="You can leave review right here:"
                        Foreground="WhiteSmoke"
                        FontSize="20"
+                           Name="header"
                            Height="auto"
                            Padding="4"
                            HorizontalAlignment="Left"
@@ -139,13 +140,16 @@
                          FontSize="14"
                          Height="100"
                          Name="commentBody"
-                         HorizontalAlignment="Left"/>
+                         HorizontalAlignment="Left"
+                         SpellCheck.IsEnabled="True" 
+                         Language="ru-ru"/>
                 <Button Content="Send review"
                         HorizontalAlignment="Left"
                         FontSize="15"
                         Padding="3"
                         Name="sendReview"
                         Click="sendReview_Click"></Button>
+                <TextBlock Name="resultOfSending"/>
             </StackPanel>
             <!--end of availability check-->
         </StackPanel>

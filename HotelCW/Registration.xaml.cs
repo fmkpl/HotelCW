@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HotelCW.DBPatterns;
+using System.Windows.Media;
 
 namespace HotelCW
 {
@@ -140,11 +141,25 @@ namespace HotelCW
             {
                 if (commentBody.Text.Length < 5)
                 {
-                    MessageBox.Show("Empty field.\nPleasy type your review before sending.", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
+                    resultOfSending.Text = "Empty field.";
+                    resultOfSending.Background = Brushes.Red;
+                    resultOfSending.FontSize = 20;
+                    resultOfSending.Foreground = Brushes.WhiteSmoke;
+                    resultOfSending.Width = 400;
+                    resultOfSending.HorizontalAlignment = HorizontalAlignment.Left;
+                    resultOfSending.Margin = header.Margin;
+                    resultOfSending.Padding = header.Padding;
+                    commentBody.Clear();
                     return;
                 }
                 else
                 {
+                    if (resultOfSending.Background == Brushes.Green) 
+                    {
+                        commentBody.Clear();
+                        MessageBox.Show("You've already sent a review.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
                     using (var context = new MyDbContext())
                     {
                         CommentRepository commentRepository = new CommentRepository(context);
@@ -157,6 +172,12 @@ namespace HotelCW
                         context.SaveChanges();
                     }
                     commentBody.Clear();
+                    resultOfSending.Text = "Thank you for your review!";
+                    resultOfSending.Background = Brushes.Green;
+                    resultOfSending.FontSize = 20;
+                    resultOfSending.Foreground = Brushes.WhiteSmoke;
+                    resultOfSending.Width = 400;
+                    resultOfSending.HorizontalAlignment = HorizontalAlignment.Left;
                 }
             }
             catch (Exception ex)
