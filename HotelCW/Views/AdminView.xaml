@@ -52,7 +52,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Label Content="Hotel Service" Foreground="WhiteSmoke" FontSize="24"/>
+            <Label Content="Hotel Diamond Plaza" Foreground="WhiteSmoke" FontSize="24"/>
             <Separator Background="AliceBlue"></Separator>
             
             <Label Content="Admin name" Foreground="white" FontSize="17"/>

@@ -52,7 +52,7 @@
                 <Image Source="power.png"/>
             </Button>
 
-            <Label Content="Hotel Service" Foreground="WhiteSmoke" FontSize="24"/>
+            <Label Content="Hotel Diamond Plaza" Foreground="WhiteSmoke" FontSize="24"/>
             <Separator Background="AliceBlue"></Separator>
             
             <Label Content="Username" Foreground="white" FontSize="17"/>

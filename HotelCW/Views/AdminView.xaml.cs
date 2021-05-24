@@ -45,8 +45,13 @@ namespace HotelCW.Views
                                 AdminControlword=a.AdminControlword
                             };
 
+
                             AdminControl adminControl = new AdminControl(currentAdmin);
                             adminControl.Show();
+                            var parent = Window.GetWindow(this);
+                            parent.WindowState = WindowState.Minimized;
+                            
+                            
                             txtAdminName.Clear();
                             txtPassword.Clear();
                             txtControlWord.Clear();

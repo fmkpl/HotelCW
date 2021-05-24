@@ -40,18 +40,25 @@ namespace HotelCW
 
         public void UpdateDataGrid() 
         {
-            clientsDataGrid.Items.Clear();
-            moreAboutClients.Items.Clear();
-            using(var context = new MyDbContext()) 
+            try
             {
-                foreach(Room room in context.Rooms)
+                clientsDataGrid.Items.Clear();
+                moreAboutClients.Items.Clear();
+                using (var context = new MyDbContext())
                 {
-                    clientsDataGrid.Items.Add(room);
+                    foreach (Room room in context.Rooms)
+                    {
+                        clientsDataGrid.Items.Add(room);
+                    }
+                    foreach (User user in context.Users)
+                    {
+                        moreAboutClients.Items.Add(user);
+                    }
                 }
-                foreach (User user in context.Users)
-                {
-                    moreAboutClients.Items.Add(user);
-                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"{ex.Message} Empty database.");
             }
         }
 
@@ -98,6 +105,22 @@ namespace HotelCW
         {
             try 
             {
+                if (numberOfNewRoom.Text.Length == 0 || numberOfNewRoom.Text.Length >= 5) 
+                {
+                    MessageBox.Show("Room number must be between 1 or 4 symbols. Or just empty field.");
+                    return;
+                }
+                int x = Convert.ToInt32(priceOfNewRoom.Text);
+                if (priceOfNewRoom.Text.Length == 0 || priceOfNewRoom.Text.Length > 6 || x <= 0) 
+                {
+                    MessageBox.Show("Incorrect price. Or just empty field.");
+                    return;
+                }
+                if (typeOfNewRoom.SelectedItem == null) 
+                {
+                    MessageBox.Show("No type selected. Or just empty field");
+                    return;
+                }
                 using(var context = new MyDbContext()) 
                 {
                     RoomRepository roomRepository = new RoomRepository(context);

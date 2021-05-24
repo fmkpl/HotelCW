@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HotelCW.DBPatterns;
-using System.Windows.Media;
 
 namespace HotelCW
 {
@@ -122,7 +121,7 @@ namespace HotelCW
                             context.Entry(user).State = EntityState.Modified;
 
                             RoomRegistration roomRegistration = new RoomRegistration(currentClient);
-                            roomRegistration.Show();
+                            roomRegistration.ShowDialog();
                         }
                     }
                     context.SaveChanges();

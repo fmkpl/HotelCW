@@ -40,9 +40,12 @@ namespace HotelCW.Views
                     {
                         if (x[0] == u.Name && x[1] == u.LastName && User.HashUserPassword(txtPassword.Password) == u.Password)
                         {
-                            MessageBox.Show($"You're welcome in our 'Hotel Diamond Plaza', {u.Name} {u.LastName}!");
                             Registration registration = new Registration(u);
                             registration.Show();
+                            var parent = Window.GetWindow(this);
+                            parent.WindowState = WindowState.Minimized;
+                            MessageBox.Show($"You're welcome in our 'Hotel Diamond Plaza', {u.Name} {u.LastName}!");
+                            
                             txtUsername.Clear();
                             txtPassword.Clear();
                         }
