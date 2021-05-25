@@ -22,14 +22,14 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Enjoy your work," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 0 10 5" Name="enjWorkTxt"/>
+            <TextBlock Text="Приятной работы," FontSize="14" Foreground="WhiteSmoke" VerticalAlignment="Bottom" Margin="10 0 10 5" Name="enjWorkTxt"/>
 
             <StackPanel Orientation="Vertical" Grid.Column="0">
-                <TextBlock Text="Number of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBlock Text="№ нового номера:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoom" Margin="10 0 10 0"/>
-                <TextBlock Text="Price of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBlock Text="Цена нового номера:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="priceOfNewRoom" Margin="10 0 10 0"/>
-                <TextBlock Text="Type of new room:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBlock Text="Тип нового номера:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <ComboBox x:Name="typeOfNewRoom" Margin="10 0 10 0" Cursor="Hand">
                     <ComboBoxItem>
                         <TextBlock Text="Default" FontSize="12"/>
@@ -67,7 +67,7 @@
 
                 <Separator Background="Cyan"/>
 
-                <TextBlock Text="Room to delete:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBlock Text="Номер к удалению:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
                 <Button Background="Transparent"
                         Margin="10"
@@ -160,13 +160,14 @@
                       AutoGenerateColumns="True" 
                       HorizontalGridLinesBrush="DarkGray" 
                       RowBackground="LightGray" 
-                      AlternatingRowBackground="White">
+                      AlternatingRowBackground="White"
+                         >
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="Number"/>
-                        <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Price"/>
-                        <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Type"/>
-                        <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Status"/>
+                        <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="№"/>
+                        <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Цена за ночь"/>
+                        <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Тип"/>
+                        <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Статус"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <DataGrid Grid.Row="1"
@@ -176,9 +177,9 @@
                       AlternatingRowBackground="White"
                           x:Name="moreAboutClients">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Path=Name}" Width="*" Header="First name"/>
-                        <DataGridTextColumn Binding="{Binding Path=LastName}" Width="*" Header="Last name"/>
-                        <DataGridTextColumn Binding="{Binding Path=userRoom.Number}" Width="*" Header="Room number"/>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Width="*" Header="Имя"/>
+                        <DataGridTextColumn Binding="{Binding Path=LastName}" Width="*" Header="Фамилия"/>
+                        <DataGridTextColumn Binding="{Binding Path=userRoom.Number}" Width="*" Header="№"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

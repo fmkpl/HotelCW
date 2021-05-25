@@ -15,7 +15,7 @@
         d:DesignHeight="880">
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
-            <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Welcome!" Name="welcome"></Label>
+            <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Мы рады вам!" Name="welcome"></Label>
             <Button Cursor="Hand"
                     Width="auto" 
                     Height="30"
@@ -32,14 +32,14 @@
             
             <!--calendar-->
 
-            <Label Margin="10 5" Content="When do you want to reserve the room?" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
+            <Label Margin="10 5" Content="Когда вы хотите снять номер?" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="From" Margin="10" FontSize="15"></Label>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="To" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="С" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="По" Margin="10" FontSize="15"></Label>
             </Grid>
             <Grid Name="calendarGrid">
                 <Grid.ColumnDefinitions>
@@ -63,8 +63,8 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="Adults" Margin="10" FontSize="15"></Label>
-                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="Children under 3 (free)" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="0" Content="Взрослые" Margin="10" FontSize="15"></Label>
+                <Label Background="#182D3B" Foreground="AliceBlue" Grid.Column="1" Content="Дети до 3 лет (за счет отеля)" Margin="10" FontSize="15"></Label>
             </Grid>
 
             <Grid Name="peopleAmount">
@@ -93,7 +93,7 @@
             
             <!--service-->
 
-            <Label Margin="10 10" Content="Service" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
+            <Label Margin="10 10" Content="Дополнительные услуги" Background="#182D3B" Foreground="AliceBlue" FontSize="15"></Label>
 
             <Grid Name="extras" Margin="10 0">
 
@@ -103,30 +103,30 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Cursor="Hand" Grid.Column="0" Background="#182D3B">
-                    <CheckBox Name="wakeUp" Margin="1" Content="Wake up - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
-                    <CheckBox Name="fridge" Margin="1" Content="Fridge - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
-                    <CheckBox Name="safe" Margin="1" Content="Safe 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="wakeUp" Margin="1" Content="Подъем - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="fridge" Margin="1" Content="Холодильник - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="safe" Margin="1" Content="Сейф - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
                 </StackPanel>
 
                 <StackPanel Cursor="Hand" Grid.Column="1" Background="#182D3B">
-                    <CheckBox Name="childBed" Margin="1" Content="Baby cot - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
-                    <CheckBox Name="coffeeMachine" Margin="1" Content="Coffe machine - 2$" Foreground="AliceBlue" FontSize="15"></CheckBox>
-                    <CheckBox Name="breakfastToBed" Margin="1" Content="Breakfast in bed - 3$/person" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="childBed" Margin="1" Content="Кроватка для младенца - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="coffeeMachine" Margin="1" Content="Кофе-машина - 2$" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="breakfastToBed" Margin="1" Content="Завтрак в постель - 3$/person" Foreground="AliceBlue" FontSize="15"></CheckBox>
                 </StackPanel>
             </Grid>
 
             <Border Margin="10 10" CornerRadius="15" Background="White">
-                <Label Content="* If you reserve a room with a child, then take a baby cot if you wish." FontSize="15"></Label>
+                <Label Content="*Советуем взять кроватку для младенца сразу перед заселением" FontSize="15"></Label>
             </Border>
             <!--checking availability-->
 
-            <Button Cursor="Hand" Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Check availability" FontSize="15"></Button>
+            <Button Cursor="Hand" Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Снять номер" FontSize="15"></Button>
 
 
             <Separator Background="Cyan"/>
 
             <StackPanel Margin="10 0" Name="commBlock">
-                <TextBlock Text="You can leave review right here:"
+                <TextBlock Text="Вы можете оставить отзыв здесь:"
                        Foreground="WhiteSmoke"
                        FontSize="20"
                            Name="header"
@@ -143,7 +143,7 @@
                          HorizontalAlignment="Left"
                          SpellCheck.IsEnabled="True" 
                          Language="ru-ru"/>
-                <Button Content="Send review"
+                <Button Content="Отправить"
                         HorizontalAlignment="Left"
                         FontSize="15"
                         Padding="3"

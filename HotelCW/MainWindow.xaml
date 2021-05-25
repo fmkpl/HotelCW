@@ -9,7 +9,7 @@
         Height="700"
         MinHeight="700"
         MaxHeight="800"
-        Width="550" 
+        Width="600" 
         MinWidth="550"
         MaxWidth="800"
         Background="Transparent">
@@ -54,11 +54,15 @@
             </Button.Style>
         </Button>
         <ContentControl Content="{Binding SelectedViewModel}"/>
-        <Label Name="welcome" FontFamily="Mathcad UniMath" Content="Welcome" HorizontalAlignment="Center" FontSize="60" Foreground="White" VerticalAlignment="Center"/>
+        <Label Name="welcome" 
+               FontFamily="Mathcad UniMath" 
+               Content="Добро пожаловать"
+               HorizontalAlignment="Center" FontSize="60" Foreground="White" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="10"
                     Width="200"
-                    Content="Log in as user" 
+                    Content="Гость" 
+                    Padding="4"
                     Command="{Binding UpdateViewComand}" 
                     CommandParameter="User"
                     Background="Black" 
@@ -83,7 +87,8 @@
             </Button>
             <Button Margin="10"
                     Width="200"
-                    Content="Log in as admin"
+                    Content="Администратор"
+                    Padding="4"
                     Command="{Binding UpdateViewComand}" 
                     CommandParameter="Admin" 
                     Background="Black"

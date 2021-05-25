@@ -38,13 +38,11 @@ namespace HotelCW.Views
                 {
                     foreach (User u in context.Users)
                     {
-                        if (x[0] == u.Name && x[1] == u.LastName && User.HashUserPassword(txtPassword.Password) == u.Password)
+                        if (x[0] == u.Name && x[1] == u.LastName && txtPassword.Password.Trim().GetHashCode().ToString() == u.Password)
                         {
                             Registration registration = new Registration(u);
-                            registration.Show();
-                            var parent = Window.GetWindow(this);
-                            parent.WindowState = WindowState.Minimized;
-                            MessageBox.Show($"You're welcome in our 'Hotel Diamond Plaza', {u.Name} {u.LastName}!");
+                            registration.ShowDialog();
+                            //MessageBox.Show($"Добро пожаловать в отель 'Diamond Plaza', {u.Name} {u.LastName}!");
                             
                             txtUsername.Clear();
                             txtPassword.Clear();
@@ -57,7 +55,7 @@ namespace HotelCW.Views
 
                     if (check == context.Users.Count())
                     {
-                        MessageBox.Show("Invalid input. \nTry log in again or try to register.", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Неверный ввод. \nПопробуйте зайти еще раз или зарегистрируйтесь.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                         txtUsername.Clear();
                         txtPassword.Clear();
                         
@@ -66,7 +64,7 @@ namespace HotelCW.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}. Error.", "Oops", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{ex.Message}. Ошибка.", "Упс", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -97,21 +95,30 @@ namespace HotelCW.Views
                 {
                     Name = x[0],
                     LastName = x[1],
-                    Password = User.HashUserPassword(txtPassword.Password),
+                    Password = txtPassword.Password.Trim().GetHashCode().ToString(),
                     RoomId = null
                 };
 
 
                 using (var context = new MyDbContext())
                 {
+                    foreach (User user in context.Users)
+                    {
+                        if (newUser.Name == user.Name && newUser.LastName == user.LastName && newUser.Password == user.Password) 
+                        {
+                            MessageBox.Show("Такой аккаунт уже существует.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+
                     UserRepository userRepository = new UserRepository(context);
                     userRepository.Create(newUser);
-                    context.SaveChanges();
+                    userRepository.Save();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Here must be your first and last name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Здесь должны быть ваши имя и фамилия.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             } 
         }
 

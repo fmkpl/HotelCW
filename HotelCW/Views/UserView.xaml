@@ -52,13 +52,13 @@
                 <Image Source="power.png"/>
             </Button>
 
-            <Label Content="Hotel Diamond Plaza" Foreground="WhiteSmoke" FontSize="24"/>
+            <Label Content="Отель Diamond Plaza" Foreground="WhiteSmoke" FontSize="24"/>
             <Separator Background="AliceBlue"></Separator>
             
-            <Label Content="Username" Foreground="white" FontSize="17"/>
+            <Label Content="Имя и фамилия пользователя" Foreground="white" FontSize="17"/>
             <TextBox Name="txtUsername" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#EBF2FA"></TextBox>
             
-            <Label Content="Password" Foreground="white" FontSize="17"/>
+            <Label Content="Пароль" Foreground="white" FontSize="17"/>
             <PasswordBox Name="txtPassword" KeyUp="TxtPassword_OnKeyUp" Background="#182D3B" FontSize="18" Foreground="#ebf2fa"></PasswordBox>
             
             <Button Cursor="Hand"
@@ -67,7 +67,7 @@
                     Padding="5" 
                     
                     Background="#182D3B"
-                    Content="Log in"
+                    Content="Войти"
                     Margin="60 30"
                     FontSize="17">
                 <Button.Style>
@@ -89,7 +89,7 @@
                     Padding="5"
                     
                     Background="#182d3b"
-                    Content="Sign up"
+                    Content="Зарегистрироваться"
                     Margin="60 -10"
                     FontSize="17">
                 <Button.Style>

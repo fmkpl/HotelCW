@@ -34,7 +34,7 @@ namespace HotelCW
         {
             InitializeComponent();
             currentClient = _client;
-            welcome.Content = "Welcome, " + currentClient.Name + " " + currentClient.LastName + "!";
+            welcome.Content = "Мы рады вам, " + currentClient.Name + " " + currentClient.LastName + "!";
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
@@ -52,14 +52,14 @@ namespace HotelCW
                     int check = 0;
                     foreach (Room room in context.Rooms)
                     {
-                        if (room.Status == "Reserved")
+                        if (room.Status == "Занято")
                         {
                             check++;
                         }
                     }
                     if (check == context.Rooms.Count())
                     {
-                        MessageBox.Show($"Hotel is full. Our excuses.\nOr you've already booked a hotel room.\nCheck your email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Все номера в отеле забронированы. Наши извинения.\nИли вы забыли, что забронировали номер.\nПроверьте свою электронную почту.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                     //end check
@@ -72,8 +72,8 @@ namespace HotelCW
                         {
                             if (user.RoomId != null)
                             {
-                                string str = $"You've already booked a hotel room. Your room number is {currentClient.userRoom.Number}.";
-                                MessageBox.Show(str, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                string str = $"Вы уже забронировали номер. Ваш номер {currentClient.userRoom.Number}.";
+                                MessageBox.Show(str, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                                 return;
                             }
 
@@ -110,10 +110,26 @@ namespace HotelCW
                                 user.ServicePrice += (3 * user.Adults);
                             }
 
+                            //date validation
+
+                            if (fromCalendar.SelectedDate < DateTime.Now.Date || toCalendar.SelectedDate < DateTime.Now.Date)
+                            {
+                                MessageBox.Show("Проверьте начальную и конечную дату.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+
                             SelectedDayFrom = fromCalendar.SelectedDate;
                             SelectedDayTo = toCalendar.SelectedDate;
 
                             user.DaysInHotel = SelectedDayTo.Value.Day - SelectedDayFrom.Value.Day;
+
+                            if (user.DaysInHotel <= 0) 
+                            {
+                                MessageBox.Show("Проверьте начальную и конечную дату.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+
+                            //end of date validation
 
                             currentClient.ServicePrice = user.ServicePrice;
                             currentClient.DaysInHotel = user.DaysInHotel;
@@ -129,7 +145,7 @@ namespace HotelCW
             }
             catch (Exception ex)
             {
-                    MessageBox.Show($"The data entered is incorrector or incomplete. You'he already booked a hotel room.");
+                    MessageBox.Show($"Данные введены неправильно или неполностью. Вы уже забронировали номер.");
                     return;
             }
         }
@@ -140,7 +156,7 @@ namespace HotelCW
             {
                 if (commentBody.Text.Length < 5)
                 {
-                    resultOfSending.Text = "Empty field.";
+                    resultOfSending.Text = "Пустое поле.";
                     resultOfSending.Background = Brushes.Red;
                     resultOfSending.FontSize = 20;
                     resultOfSending.Foreground = Brushes.WhiteSmoke;
@@ -156,7 +172,7 @@ namespace HotelCW
                     if (resultOfSending.Background == Brushes.Green) 
                     {
                         commentBody.Clear();
-                        MessageBox.Show("You've already sent a review.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Вы уже отправили отзыв.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }
                     using (var context = new MyDbContext())
@@ -171,7 +187,7 @@ namespace HotelCW
                         context.SaveChanges();
                     }
                     commentBody.Clear();
-                    resultOfSending.Text = "Thank you for your review!";
+                    resultOfSending.Text = "Спасибо за ваш отзыв! Он очень важен для нас.";
                     resultOfSending.Background = Brushes.Green;
                     resultOfSending.FontSize = 20;
                     resultOfSending.Foreground = Brushes.WhiteSmoke;

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HotelCW.DBPatterns;
 
 namespace HotelCW.Views
 {
@@ -35,21 +36,19 @@ namespace HotelCW.Views
                 {
                     foreach (Admin a in context.Admins)
                     {
-                        if (txtAdminName.Text == a.AdminName && Admin.HashAdminPassword(txtPassword.Password) == a.AdminPassword && txtControlWord.Password == a.AdminControlword)
+                        if (txtAdminName.Text == a.AdminName && txtPassword.Password.Trim().GetHashCode().ToString() == a.AdminPassword && txtControlWord.Password == a.AdminControlword)
                         {
-                            MessageBox.Show($"You're welcome, {a.AdminName}!");
                             Admin currentAdmin = new Admin()
                             {
                                 AdminName = a.AdminName,
                                 AdminPassword = a.AdminPassword,
-                                AdminControlword=a.AdminControlword
+                                AdminControlword = a.AdminControlword
                             };
 
 
                             AdminControl adminControl = new AdminControl(currentAdmin);
-                            adminControl.Show();
-                            var parent = Window.GetWindow(this);
-                            parent.WindowState = WindowState.Minimized;
+                            adminControl.ShowDialog();
+                            //MessageBox.Show($"Приветствуем, {a.AdminName}!");
                             
                             
                             txtAdminName.Clear();
@@ -64,7 +63,7 @@ namespace HotelCW.Views
 
                     if (check == context.Admins.Count())
                     {
-                        MessageBox.Show("Invalid input. \nTry log in again or try to register.", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Неверный ввод. \nПопробуйте зайти еще раз или зарегистрируйтесь.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                         txtAdminName.Clear();
                         txtPassword.Clear();
                         txtControlWord.Clear();
@@ -73,7 +72,7 @@ namespace HotelCW.Views
             }
             catch(Exception ex) 
             {
-                MessageBox.Show($"{ex.Message}. Error.", "Oops", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{ex.Message}. Ошибка.", "Упс", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void TxtPassword_OnKeyUp(object sender, KeyEventArgs e)
@@ -95,12 +94,24 @@ namespace HotelCW.Views
         {
             Admin newAdmin = new Admin();
             newAdmin.AdminName = txtAdminName.Text;
-            newAdmin.AdminPassword = Admin.HashAdminPassword(txtPassword.Password);
+            newAdmin.AdminPassword = txtPassword.Password.Trim().GetHashCode().ToString();
             newAdmin.AdminControlword = txtControlWord.Password;
+
+            
             using(var context = new MyDbContext()) 
             {
-                context.Admins.Add(newAdmin);
-                context.SaveChanges();
+                foreach (Admin admin in context.Admins)
+                {
+                    if (newAdmin.AdminName == admin.AdminName && newAdmin.AdminPassword == admin.AdminPassword && newAdmin.AdminControlword == admin.AdminControlword) 
+                    {
+                        MessageBox.Show("Такой аккаунт уже существует.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                }
+
+                AdminRepository adminRepository = new AdminRepository(context);
+                adminRepository.Create(newAdmin);
+                adminRepository.Save();
             }
         }
 

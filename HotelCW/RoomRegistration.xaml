@@ -26,7 +26,7 @@
                     <TextBlock TextWrapping="Wrap"
                            FontSize="14"
                            Margin="15"
-                           Text="List of rooms: "
+                           Text="Список комнат: "
                            Foreground="AliceBlue" 
                            Name="freeRooms"></TextBlock>
                     <ComboBox Grid.Column="1"
@@ -66,7 +66,11 @@
                 <!--name and lastname-->
 
                 <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="0">
-                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Name" TextAlignment="Center"></TextBlock>
+                    <TextBlock Background="MidnightBlue" 
+                               Foreground="AliceBlue" 
+                               FontSize="18" 
+                               Text="Имя" 
+                               TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientNameTxt" 
                              FontSize="18"
                              Padding="10"
@@ -80,7 +84,10 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Last name" TextAlignment="Center"></TextBlock>
+                    <TextBlock Background="MidnightBlue"
+                               Foreground="AliceBlue" 
+                               FontSize="18" 
+                               Text="Фамилия" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientSecondNameTxt" 
                              FontSize="18"
                              Padding="10"
@@ -99,7 +106,10 @@
                 <!--phone and email-->
 
                 <StackPanel Margin="10 0" Grid.Column="1" Grid.Row="0">
-                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Phone number" TextAlignment="Center"></TextBlock>
+                    <TextBlock Background="MidnightBlue" 
+                               Foreground="AliceBlue"
+                               FontSize="18"
+                               Text="Номер телефона" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientPhoneTxt"
                              FontSize="18"
                              Padding="10"
@@ -113,7 +123,10 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Email" TextAlignment="Center"></TextBlock>
+                    <TextBlock Background="MidnightBlue" 
+                               Foreground="AliceBlue" 
+                               FontSize="18" 
+                               Text="Электронная почта" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientEmailTxt"
                              FontSize="18" 
                              Padding="10"
@@ -129,7 +142,10 @@
                     </TextBox>
                 </StackPanel>
                 <StackPanel Margin="10 0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                    <TextBlock Background="MidnightBlue" Foreground="AliceBlue" FontSize="18" Text="Room number" TextAlignment="Center"></TextBlock>
+                    <TextBlock Background="MidnightBlue" 
+                               Foreground="AliceBlue" 
+                               FontSize="18" 
+                               Text="Номер комнаты, которую выбрали" TextAlignment="Center"></TextBlock>
                     <TextBox Name="clientNumberOfRoomTxt"
                              FontSize="18"
                              Padding="10"
@@ -146,18 +162,25 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="4*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
                 <TextBlock Name="RoomID" Padding="10" Grid.Column="0" Foreground="AliceBlue"></TextBlock>
                 <TextBlock Name="RoomCost" Padding="10" Grid.Column="1" Foreground="AliceBlue"></TextBlock>
-                <TextBlock Name="RoomFloor" Padding="10" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" Text="Make sure that the price and the room number match." Background="RoyalBlue" Foreground="AliceBlue"></TextBlock>
+                <TextBlock Name="RoomFloor"
+                           Padding="10" 
+                           Grid.Column="2" 
+                           TextAlignment="Center" 
+                           FontWeight="Bold"
+                           Text="Убедитесь, что цена и номер комнаты совпадают" Background="RoyalBlue" Foreground="AliceBlue"></TextBlock>
 
                 <Button Cursor="Hand"
+                        Width="auto"
+                        Padding="3"
                         Click="bookBtn_Click"
                         Grid.Column="3" 
                         Name="bookBtn"
-                        Content="Reserve now"></Button>
+                        Content="Забронировать"></Button>
 
             </Grid>
         </StackPanel>

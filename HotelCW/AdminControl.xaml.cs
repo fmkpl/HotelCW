@@ -27,6 +27,8 @@ namespace HotelCW
             InitializeComponent();
             LoadDataFromDb();
             LoadAllAboutUsersFromDB();
+            clientsDataGrid.IsReadOnly = true;
+            moreAboutClients.IsReadOnly = true;
         }
 
         public AdminControl(Admin _currentAdmin) 
@@ -36,6 +38,8 @@ namespace HotelCW
             LoadAllAboutUsersFromDB();
             currentAdmin = _currentAdmin;
             enjWorkTxt.Text += (" " + currentAdmin.AdminName + "!");
+            clientsDataGrid.IsReadOnly = true;
+            moreAboutClients.IsReadOnly = true;
         }
 
         public void UpdateDataGrid() 
@@ -58,7 +62,7 @@ namespace HotelCW
             }
             catch (Exception ex) 
             {
-                MessageBox.Show($"{ex.Message} Empty database.");
+                MessageBox.Show($"{ex.Message} Пустая база данных.");
             }
         }
 
@@ -71,11 +75,11 @@ namespace HotelCW
                 {
                     if (r.Users.Count == 0)
                     {
-                        r.Status = "Free";
+                        r.Status = "Свободно";
                     }
                     else if (r.Users.Count != 0)
                     {
-                        r.Status = "Reserved";
+                        r.Status = "Занято";
                     }
                     context.Entry(r).State = EntityState.Modified;
                 }
@@ -107,18 +111,18 @@ namespace HotelCW
             {
                 if (numberOfNewRoom.Text.Length == 0 || numberOfNewRoom.Text.Length >= 5) 
                 {
-                    MessageBox.Show("Room number must be between 1 or 4 symbols. Or just empty field.");
+                    MessageBox.Show("Число номера должно быть от 1 до 4 цифр. Или просто пустое поле.");
                     return;
                 }
                 int x = Convert.ToInt32(priceOfNewRoom.Text);
                 if (priceOfNewRoom.Text.Length == 0 || priceOfNewRoom.Text.Length > 6 || x <= 0) 
                 {
-                    MessageBox.Show("Incorrect price. Or just empty field.");
+                    MessageBox.Show("Неверная цена. Или просто пустое поле.");
                     return;
                 }
                 if (typeOfNewRoom.SelectedItem == null) 
                 {
-                    MessageBox.Show("No type selected. Or just empty field");
+                    MessageBox.Show("Не выбран тип номера. Или просто пустое поле.");
                     return;
                 }
                 using(var context = new MyDbContext()) 
@@ -129,7 +133,7 @@ namespace HotelCW
                         Number = numberOfNewRoom.Text,
                         Price = Convert.ToInt32(priceOfNewRoom.Text),
                         Type=typeOfNewRoom.Text,
-                        Status="Free"
+                        Status="Свободно"
                     };
                     foreach(Admin admin in context.Admins) 
                     {
@@ -139,7 +143,7 @@ namespace HotelCW
                             {
                                 numberOfNewRoom.Clear();
                                 priceOfNewRoom.Clear();
-                                MessageBox.Show("This room is already in hotel.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                MessageBox.Show("Этот номер уже есть в отеле.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 return;
                             }
                         }
@@ -163,7 +167,7 @@ namespace HotelCW
             }
             catch(Exception ex) 
             {
-                MessageBox.Show($"{ex.Message}. Error.");
+                MessageBox.Show($"{ex.Message}. Ошибка.");
             }
         }
 
@@ -217,7 +221,7 @@ namespace HotelCW
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}. Error.");
+                MessageBox.Show($"{ex.Message}. Ошибка.");
             }
         }
 
