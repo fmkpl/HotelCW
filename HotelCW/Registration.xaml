@@ -116,7 +116,7 @@
             </Grid>
 
             <Border Margin="10 10" CornerRadius="15" Background="White">
-                <Label Content="*Советуем взять кроватку для младенца сразу перед заселением" FontSize="15"></Label>
+                <Label Content="Советуем взять кроватку для младенца сразу перед заселением" FontSize="15"></Label>
             </Border>
             <!--checking availability-->
 

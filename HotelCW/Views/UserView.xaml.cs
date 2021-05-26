@@ -41,7 +41,7 @@ namespace HotelCW.Views
                         if (x[0] == u.Name && x[1] == u.LastName && txtPassword.Password.Trim().GetHashCode().ToString() == u.Password)
                         {
                             Registration registration = new Registration(u);
-                            registration.ShowDialog();
+                            registration.Show();
                             //MessageBox.Show($"Добро пожаловать в отель 'Diamond Plaza', {u.Name} {u.LastName}!");
                             
                             txtUsername.Clear();

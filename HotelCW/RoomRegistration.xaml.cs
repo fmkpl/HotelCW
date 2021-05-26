@@ -123,7 +123,7 @@ namespace HotelCW
                                 clientEnd.ServicePrice = client.ServicePrice;
 
                                 //sending email
-                                client.userRoom.roomAdmin.SendEmailToClient(client);
+                                client.userRoom.roomAdmin.SendEmailToClient(clientEnd);
 
                                 context.Entry(client).State = EntityState.Modified;
                             }
@@ -140,7 +140,7 @@ namespace HotelCW
 
 
                     string str;
-                    str = "Имя: " + clientEnd.Name +
+                    /*str = "Имя: " + clientEnd.Name +
                         "\nФамилия: " + clientEnd.LastName +
                         "\nНомер телефона: " + clientEnd.PhoneNumber +
                         "\nЭлектронная почта: " + clientEnd.Email +
@@ -149,7 +149,8 @@ namespace HotelCW
                         "\nДни в отеле: " + clientEnd.DaysInHotel.ToString() +
                         "\nНомер: " + clientEnd.userRoom.Number +
                         "\nЦена за ночь: " + clientEnd.userRoom.Price.ToString() +
-                        "\nЦена к оплате: " + clientEnd.ServicePrice.ToString();
+                        "\nЦена к оплате: " + clientEnd.ServicePrice.ToString();*/
+                str = "Вся информация в письме, которое мы выслали вам на электронную почту.\nХорошего проживания!";
                 MessageBox.Show(str, "Ваша бронь", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             this.Close();

@@ -29,7 +29,7 @@
       <FileName>Comment.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HotelCW.UnitOfWork" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="HotelCW.UnitOfWork" BaseTypeListCollapsed="true">
     <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAKAAACAQIAAAAAAAAQACAAAAAAAAAAAAAIAAAAA=</HashCode>
@@ -75,14 +75,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="HotelCW.User" Collapsed="true">
+  <Class Name="HotelCW.User">
     <Position X="16.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAACACgAAAAAAAAAQAQAAAQAAAgGAAAGAAAAAAg=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HotelCW.Commands.UpdateViewCommand" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="HotelCW.Commands.UpdateViewCommand" BaseTypeListCollapsed="true">
     <Position X="14.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -223,7 +223,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="HotelCW.Properties.Settings" Collapsed="true">
+  <Class Name="HotelCW.Properties.Settings">
     <Position X="11" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
@@ -244,7 +244,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="HotelCW.ViewModels.MainViewModel" Collapsed="true">
+  <Class Name="HotelCW.ViewModels.MainViewModel">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
@@ -264,8 +264,9 @@
       <HashCode>AEAAAAAAAAIAAAAAAABAAAAAAAGAAAEAAAAQAAAAAAA=</HashCode>
       <FileName>Views\AdminView.xaml.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="HotelCW.Views.UserView" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="HotelCW.Views.UserView" BaseTypeListCollapsed="true">
     <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAIAAAAAAABAAAAAAAGAAAEAAAAQAAAAAAA=</HashCode>
@@ -273,7 +274,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Interface Name="HotelCW.IRepository&lt;T&gt;" Collapsed="true">
+  <Interface Name="HotelCW.IRepository&lt;T&gt;">
     <Position X="7.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAIAAAAAAAABAAAAAAAAAAAEAEEAAAAAAAAAAAAA=</HashCode>

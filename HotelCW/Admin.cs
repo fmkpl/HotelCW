@@ -14,21 +14,21 @@ namespace HotelCW
         public int Id { get; set; }
 
 
-        [MaxLength(30, ErrorMessage = "Too long name.")]
-        [MinLength(2, ErrorMessage = "Too short name.")]
-        [Required(ErrorMessage = "This field is required.")]
+        [MaxLength(30, ErrorMessage = "Слишком длинное имя.")]
+        [MinLength(2, ErrorMessage = "Слишком короткое имя.")]
+        [Required(ErrorMessage = "Это поле обязательно.")]
         public string AdminName { get; set; }
 
 
-        [MaxLength(30, ErrorMessage = "Too long password.")]
-        [MinLength(4,ErrorMessage = "Too short password.")]
-        [Required(ErrorMessage = "This field is required.")]
+        [MaxLength(30, ErrorMessage = "Слишком длинный пароль.")]
+        [MinLength(4,ErrorMessage = "Слишком короткий пароль.")]
+        [Required(ErrorMessage = "Это поле обязательно.")]
         public string AdminPassword { get; set; }
 
 
-        [MaxLength(20, ErrorMessage = "Too long control word.")]
-        [MinLength(4, ErrorMessage = "Too short control word.")]
-        [Required(ErrorMessage = "This field is required.")]
+        [MaxLength(20, ErrorMessage = "Слишком длинное ключевое слово.")]
+        [MinLength(4, ErrorMessage = "Слишком короткое ключевое слово.")]
+        [Required(ErrorMessage = "Это поле обязательно.")]
         public string AdminControlword { get; set; }
 
         public virtual ICollection<Room> Rooms { get; set; }
@@ -38,15 +38,20 @@ namespace HotelCW
 
         public void SendEmailToClient(User client) 
         {
-            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Administrator " + AdminName);
-            MailAddress toAddress = new MailAddress(client.Email,"Dear, " + client.Name + " " + client.LastName);
+            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Администратор " + AdminName);
+            MailAddress toAddress = new MailAddress(client.Email,"Уважаемый, " + client.Name + " " + client.LastName);
 
 
             using (MailMessage mailMessage = new MailMessage(fromMailAddress, toAddress))
             using (SmtpClient smtpClient = new SmtpClient())
             {
-                mailMessage.Subject = "Accept";
-                mailMessage.Body = $"Your room number is {client.userRoom.Number}. Price to pay = {client.ServicePrice}$\nWelcome to the hotel!\nAny questions? - Visit reception.\nYou can also leave a review after log-in in registration window.\nHave a good stay! =)";
+                mailMessage.Subject = "Подтверждение";
+                mailMessage.Body = $"Ваш номер - №{client.userRoom.Number}." +
+                    $"\nСумма к оплате = {client.ServicePrice.ToString()}$." +
+                    $"\nВаши контактные данные: {client.PhoneNumber.ToString()}, { client.Email.ToString()}." +
+                    $"\nВы будете проживать в отеле на протяжении: {client.DaysInHotel.ToString()} суток." +
+                    $"\nКол-во взрослых в номере: {client.Adults.ToString()}, кол-во детей до 3 лет: {client.ChildsUnderThree.ToString()}." +
+                    $"\nДобро пожаловать в отель!\nВозникли вопросы? - Обращайтесь в ресепшн.\nТакже вы можете оставить свой отзыв после процесса авторизации в окне регистрации.";
 
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.Port = 587;
@@ -62,15 +67,15 @@ namespace HotelCW
 
         public void SendEmailAboutEviction(User client) 
         {
-            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Administrator " + AdminName);
-            MailAddress toAddress = new MailAddress(client.Email, "Dear, " + client.Name + " " + client.LastName);
+            MailAddress fromMailAddress = new MailAddress("efimberg22@gmail.com", "Администратор " + AdminName);
+            MailAddress toAddress = new MailAddress(client.Email, "Уважаемый, " + client.Name + " " + client.LastName);
 
 
             using (MailMessage mailMessage = new MailMessage(fromMailAddress, toAddress))
             using (SmtpClient smtpClient = new SmtpClient())
             {
-                mailMessage.Subject = "Eviction";
-                mailMessage.Body = $"You were evicted from {client.userRoom.Number} room. Any questions? - Visit reception.\nYou can also leave a review after log-in in registration window.\nWe were glad to see you in our hotel!";
+                mailMessage.Subject = "Выселение";
+                mailMessage.Body = $"Вас выселили из номера {client.userRoom.Number}. Возникли вопросы? - Обращайтесь в ресепшн.\nТакже вы можете оставить свой отзыв после процесса авторизации в окне регистрации.\nРады были вас видеть в нашем отеле!";
 
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.Port = 587;
@@ -82,51 +87,6 @@ namespace HotelCW
                 smtpClient.Send(mailMessage);
             }
 
-        }
-
-        public static string HashAdminPassword(string userPassword)
-        {
-            //ceaser shifr
-            string alphabet = "abcdefghijklmnopqrstuvwxyz";
-            string digits = "1234567890";
-            string result = "";
-            for (int i = 0; i < userPassword.Length; i++)
-            {
-                for (int j = 0; j < alphabet.Length - 2; j++)
-                {
-                    if (userPassword[i] == 'y')
-                    {
-                        result += 'a';
-                    }
-                    if (userPassword[i] == 'z')
-                    {
-                        result += 'b';
-                    }
-                    if (userPassword[i] == alphabet[j])
-                    {
-                        result += alphabet[j + 2];
-                    }
-                }
-            }
-            for (int i = 0; i < userPassword.Length; i++)
-            {
-                for (int j = 0; j < digits.Length - 2; j++)
-                {
-                    if (userPassword[i] == '9')
-                    {
-                        result += '1';
-                    }
-                    if (userPassword[i] == '0')
-                    {
-                        result += '2';
-                    }
-                    if (userPassword[i] == digits[j])
-                    {
-                        result += digits[j + 2];
-                    }
-                }
-            }
-            return result;
         }
     }
 }

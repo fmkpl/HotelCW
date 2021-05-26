@@ -137,7 +137,7 @@ namespace HotelCW
                             context.Entry(user).State = EntityState.Modified;
 
                             RoomRegistration roomRegistration = new RoomRegistration(currentClient);
-                            roomRegistration.ShowDialog();
+                            roomRegistration.Show();
                         }
                     }
                     context.SaveChanges();
@@ -145,8 +145,8 @@ namespace HotelCW
             }
             catch (Exception ex)
             {
-                    MessageBox.Show($"Данные введены неправильно или неполностью. Вы уже забронировали номер.");
-                    return;
+                MessageBox.Show($"Вы уже забронировали номер.");
+                return;
             }
         }
 
@@ -162,8 +162,8 @@ namespace HotelCW
                     resultOfSending.Foreground = Brushes.WhiteSmoke;
                     resultOfSending.Width = 400;
                     resultOfSending.HorizontalAlignment = HorizontalAlignment.Left;
-                    resultOfSending.Margin = header.Margin;
-                    resultOfSending.Padding = header.Padding;
+                    resultOfSending.Margin = commentBody.Margin;
+                    resultOfSending.Padding = sendReview.Padding;
                     commentBody.Clear();
                     return;
                 }
