@@ -39,6 +39,8 @@ namespace HotelCW
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
 
@@ -77,8 +79,8 @@ namespace HotelCW
                                 return;
                             }
 
-                            user.Adults = adultsCombobox.SelectedIndex + 1;
-                            user.ChildsUnderThree = childrenCombobox.SelectedIndex;
+                            user.Adults = Convert.ToInt32(adultsCombobox.Text);
+                            user.ChildsUnderThree = Convert.ToInt32(childrenCombobox.Text);
 
                             currentClient.Adults = user.Adults;
                             currentClient.ChildsUnderThree = user.ChildsUnderThree;
@@ -157,6 +159,7 @@ namespace HotelCW
                 if (commentBody.Text.Length < 5)
                 {
                     resultOfSending.Text = "Пустое поле.";
+                    resultOfSending.TextWrapping = TextWrapping.Wrap;
                     resultOfSending.Background = Brushes.Red;
                     resultOfSending.FontSize = 20;
                     resultOfSending.Foreground = Brushes.WhiteSmoke;
@@ -190,6 +193,7 @@ namespace HotelCW
                     resultOfSending.Text = "Спасибо за ваш отзыв! Он очень важен для нас.";
                     resultOfSending.Background = Brushes.Green;
                     resultOfSending.FontSize = 20;
+                    resultOfSending.TextWrapping = TextWrapping.Wrap;
                     resultOfSending.Foreground = Brushes.WhiteSmoke;
                     resultOfSending.Width = 400;
                     resultOfSending.HorizontalAlignment = HorizontalAlignment.Left;

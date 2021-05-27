@@ -12,7 +12,10 @@
         Width="800"
         MinWidth="800"
         MaxWidth="1000"
-        Background="Transparent">
+        Background="Transparent"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Border Margin="30"
             Background="MidnightBlue"
             CornerRadius="15">
@@ -38,23 +41,30 @@
                         <TextBlock Text="VIP" FontSize="12"/>
                     </ComboBoxItem>
                 </ComboBox>
-                <Button Background="Transparent"
+                <Button Background="Black"
                         Margin="10" 
-                        FontSize="20"
+                        Content="ДОБАВИТЬ"
+                        FontSize="30"
                         Name="addRoom"
-                        Click="addRoom_Click"
-                        BorderThickness="0">
+                        Click="addRoom_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Style.Setters>
-                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Width" Value="200"/>
                                 <Setter Property="Height" Value="50"/>
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+                                <Setter Property="BorderThickness" Value="3"/>
                             </Style.Setters>
                             <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                </Trigger>
                                 <EventTrigger RoutedEvent="Click">
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="190" AutoReverse="True"/>
                                             <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -62,30 +72,37 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-                    <Image Source="plus.png"/>
+                    <!--<Image Source="plus.png"/>-->
                 </Button>
 
                 <Separator Background="Cyan"/>
 
                 <TextBlock Text="Номер к удалению:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
-                <Button Background="Transparent"
+                <Button Background="Black"
                         Margin="10"
-                        FontSize="20"
+                        FontSize="30"
+                        Content="УДАЛИТЬ"
                         Name="deleteRoom" 
                         Click="deleteRoom_Click"
-                        BorderThickness="0">
+                        BorderThickness="3">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Style.Setters>
-                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Width" Value="200"/>
                                 <Setter Property="Height" Value="50"/>
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="BorderBrush" Value="WhiteSmoke"/>
                             </Style.Setters>
                             <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                </Trigger>
                                 <EventTrigger RoutedEvent="Click">
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="190" AutoReverse="True"/>
                                             <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -93,15 +110,16 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-                    <Image Source="delete.png"/>
+                    <!--<Image Source="delete.png"/>-->
                 </Button>
                 <Separator Background="Cyan"/>
                 <StackPanel Orientation="Horizontal"
                             Margin="0 5 0 0">
                     <Button Background="Transparent"
                         BorderThickness="0"
-                        FontSize="20" 
+                        FontSize="20"
                         Name="updateTable"
+                            HorizontalAlignment="Left"
                         Click="updateTable_Click">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -121,11 +139,12 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-                        <Image Source="exchange.png"/>
+                        <Image Source="refresh.png"/>
                     </Button>
                     <Button Name="exitAdmin"
                         Background="Transparent"
                         FontSize="20"
+                            HorizontalAlignment="Right"
                         Click="exitAdmin_Click"
                         BorderThickness="0">
                         <Button.Style>
@@ -160,8 +179,7 @@
                       AutoGenerateColumns="True" 
                       HorizontalGridLinesBrush="DarkGray" 
                       RowBackground="LightGray" 
-                      AlternatingRowBackground="White"
-                         >
+                      AlternatingRowBackground="White">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="№"/>

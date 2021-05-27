@@ -225,6 +225,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="HotelCWClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -270,6 +272,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\github5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recycle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

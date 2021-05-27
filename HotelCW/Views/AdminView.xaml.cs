@@ -47,10 +47,12 @@ namespace HotelCW.Views
 
 
                             AdminControl adminControl = new AdminControl(currentAdmin);
-                            adminControl.ShowDialog();
+                            adminControl.Show();
                             //MessageBox.Show($"Приветствуем, {a.AdminName}!");
-                            
-                            
+                            var parent = Window.GetWindow(this);
+                            parent.Close();
+
+
                             txtAdminName.Clear();
                             txtPassword.Clear();
                             txtControlWord.Clear();
@@ -113,6 +115,7 @@ namespace HotelCW.Views
                 adminRepository.Create(newAdmin);
                 adminRepository.Save();
             }
+            MessageBox.Show("Вы успешно зарегистрировались.", "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void txtControlword_OnKeyUp(object sender, KeyEventArgs e)

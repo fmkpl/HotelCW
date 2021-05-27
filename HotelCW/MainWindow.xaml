@@ -12,7 +12,10 @@
         Width="600" 
         MinWidth="550"
         MaxWidth="800"
-        Background="Transparent">
+        Background="Transparent"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Grid Name="startWindow">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

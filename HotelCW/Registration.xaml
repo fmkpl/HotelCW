@@ -12,7 +12,10 @@
         MinWidth="500" 
         MaxWidth="800"
         MaxHeight="1000"
-        d:DesignHeight="880">
+        d:DesignHeight="880"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Border Margin="5">
         <StackPanel Background="DodgerBlue">
             <Label Foreground="#EBF2FA" Background="#182D3B" FontSize="12" Content="Мы рады вам!" Name="welcome"></Label>
@@ -111,7 +114,7 @@
                 <StackPanel Cursor="Hand" Grid.Column="1" Background="#182D3B">
                     <CheckBox Name="childBed" Margin="1" Content="Кроватка для младенца - 1$" Foreground="AliceBlue" FontSize="15"></CheckBox>
                     <CheckBox Name="coffeeMachine" Margin="1" Content="Кофе-машина - 2$" Foreground="AliceBlue" FontSize="15"></CheckBox>
-                    <CheckBox Name="breakfastToBed" Margin="1" Content="Завтрак в постель - 3$/person" Foreground="AliceBlue" FontSize="15"></CheckBox>
+                    <CheckBox Name="breakfastToBed" Margin="1" Content="Завтрак в постель - 3$/персон" Foreground="AliceBlue" FontSize="15"></CheckBox>
                 </StackPanel>
             </Grid>
 

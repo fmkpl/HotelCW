@@ -40,9 +40,11 @@ namespace HotelCW.Views
                     {
                         if (x[0] == u.Name && x[1] == u.LastName && txtPassword.Password.Trim().GetHashCode().ToString() == u.Password)
                         {
-                            Registration registration = new Registration(u);
+                            Registration registration = new Registration(u as User);
                             registration.Show();
                             //MessageBox.Show($"Добро пожаловать в отель 'Diamond Plaza', {u.Name} {u.LastName}!");
+                            var parent = Window.GetWindow(this);
+                            parent.Close();
                             
                             txtUsername.Clear();
                             txtPassword.Clear();
@@ -115,6 +117,7 @@ namespace HotelCW.Views
                     userRepository.Create(newUser);
                     userRepository.Save();
                 }
+                MessageBox.Show("Вы успешно зарегистрировались.", "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

@@ -5,20 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelCW"
         mc:Ignorable="d"
-        Title="RoomRegistration" Height="650" Width="650">
+        Title="RoomRegistration"
+        Height="650" 
+        Width="650"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Border Margin="10" Background="#182D3B">
         <StackPanel>
             <Grid Name="mainMenu">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <!--<ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>-->
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0"
@@ -39,7 +44,7 @@
                 <Button Cursor="Hand"
                         Name="goBackBtn"
                         Click="goBackBtn_Click"
-                        Grid.Column="8"
+                        Grid.Column="5"
                         Width="50"
                         Height="50"
                         Background="Transparent"
