@@ -236,5 +236,31 @@ namespace HotelCW
             mainWindow.Show();
             this.Close();
         }
+
+        private void findUser_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string[] str = fullNameOfUser.Text.Split();
+                string strFirst, strSecond;
+                strFirst = str[0];
+                strSecond = str[1];
+                using (var context = new MyDbContext())
+                {
+                    foreach (var user in context.Users)
+                    {
+                        if (user.Name == strFirst && user.LastName == strSecond) 
+                        {
+                            MessageBox.Show($"Имя гостя: {user.Name} {user.LastName}\nДата заезда: {user.DateFrom}\nДата выезда: {user.DateTo}\nЭлектронная почта: {user.Email}\nНомер телефона: {user.PhoneNumber}\n", "Информация о госте", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                }
+                fullNameOfUser.Clear();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Такго гостя нет в отеле.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

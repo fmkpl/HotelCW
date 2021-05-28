@@ -51,10 +51,10 @@ namespace HotelCW
         public string DateTo { get; set; }
 
 
-        public string CheckStatus() 
+        public string CheckStatus(User _user) 
         {
             string str;
-            str = "Ваш номер: " + userRoom.Number + "\nДата заезда: " + DateFrom + "\nДата выезда: " + DateTo + "\nЦена к оплате:" + ServicePrice.ToString()+"$";
+            str = "Ваш номер: " + _user.userRoom.Number + "\nДата заезда: " + _user.DateFrom + "\nДата выезда: " + _user.DateTo + "\nЦена к оплате: " + _user.ServicePrice.ToString()+"$";
             return str;
         }
     }

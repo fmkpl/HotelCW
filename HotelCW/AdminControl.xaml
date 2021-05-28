@@ -77,7 +77,8 @@
 
                 <Separator Background="Cyan"/>
 
-                <TextBlock Text="Номер к удалению:" Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBlock Text="Номер к удалению:"
+                           Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
                 <TextBox x:Name="numberOfNewRoomToDelete" Margin="10 0 10 0"/>
                 <Button Background="Black"
                         Margin="10"
@@ -113,6 +114,45 @@
                     <!--<Image Source="delete.png"/>-->
                 </Button>
                 <Separator Background="Cyan"/>
+
+                <TextBlock Text="Имя гостя:"
+                           Margin="10 0 10 0" Foreground="WhiteSmoke" FontSize="20"/>
+                <TextBox x:Name="fullNameOfUser" Margin="10 0 10 0"/>
+                <Button Background="Black"
+                        Margin="10"
+                        FontSize="30"
+                        Content="НАЙТИ"
+                        Name="findUser"
+                        Click="findUser_Click"
+                        BorderThickness="3">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Setters>
+                                <Setter Property="Width" Value="200"/>
+                                <Setter Property="Height" Value="50"/>
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+                            </Style.Setters>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                </Trigger>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.3" To="190" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.3" To="45" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
+                <Separator Background="Cyan"/>
+                
                 <StackPanel Orientation="Horizontal"
                             Margin="0 5 0 0">
                     <Button Background="Transparent"

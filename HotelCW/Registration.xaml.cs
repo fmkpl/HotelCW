@@ -114,6 +114,12 @@ namespace HotelCW
 
                             //date validation
 
+                            if (fromCalendar.SelectedDate.Value.Month > toCalendar.SelectedDate.Value.Month) 
+                            {
+                                MessageBox.Show("Проверьте начальную и конечную дату.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+
                             if (fromCalendar.SelectedDate < DateTime.Now.Date || toCalendar.SelectedDate < DateTime.Now.Date)
                             {
                                 MessageBox.Show("Проверьте начальную и конечную дату.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -123,7 +129,7 @@ namespace HotelCW
                             SelectedDayFrom = fromCalendar.SelectedDate;
                             SelectedDayTo = toCalendar.SelectedDate;
 
-                            user.DaysInHotel = SelectedDayTo.Value.Day - SelectedDayFrom.Value.Day;
+                            user.DaysInHotel = SelectedDayTo.Value.DayOfYear- SelectedDayFrom.Value.DayOfYear;
 
                             if (user.DaysInHotel <= 0) 
                             {
@@ -218,7 +224,7 @@ namespace HotelCW
             var checkingUser = userRepository.Get(currentClient.Id);
             if (checkingUser.userRoom != null)
             {
-                MessageBox.Show(currentClient.CheckStatus().ToString(), "Ваша бронь", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(checkingUser.CheckStatus(checkingUser).ToString(), "Ваша бронь", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if (checkingUser.userRoom == null) 
             {
