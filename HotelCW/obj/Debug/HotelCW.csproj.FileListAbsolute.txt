@@ -41,3 +41,4 @@ D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.reAdFA
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedcomments.resources
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addedcommentsagain.resources
 D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.modifiedcomments.resources
+D:\курсач 4 сем\vip\HotelCW\HotelCW\obj\Debug\HotelCW.Migrations.addeddatestouser.resources

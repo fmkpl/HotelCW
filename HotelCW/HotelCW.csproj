@@ -121,6 +121,10 @@
     <Compile Include="Migrations\202105221935197_modified comments.designer.cs">
       <DependentUpon>202105221935197_modified comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105280818096_added dates to user.cs" />
+    <Compile Include="Migrations\202105280818096_added dates to user.designer.cs">
+      <DependentUpon>202105280818096_added dates to user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Registration.xaml.cs">
@@ -220,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105221935197_modified comments.resx">
       <DependentUpon>202105221935197_modified comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105280818096_added dates to user.resx">
+      <DependentUpon>202105280818096_added dates to user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

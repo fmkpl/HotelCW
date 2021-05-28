@@ -46,5 +46,16 @@ namespace HotelCW
         [EmailAddress(ErrorMessage = "Invalid email adress.")]
         public string Email { get; set; }
 
+        public string DateFrom { get; set; }
+
+        public string DateTo { get; set; }
+
+
+        public string CheckStatus() 
+        {
+            string str;
+            str = "Ваш номер: " + userRoom.Number + "\nДата заезда: " + DateFrom + "\nДата выезда: " + DateTo + "\nЦена к оплате:" + ServicePrice.ToString()+"$";
+            return str;
+        }
     }
 }

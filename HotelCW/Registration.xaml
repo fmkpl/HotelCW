@@ -123,7 +123,22 @@
             </Border>
             <!--checking availability-->
 
-            <Button Cursor="Hand" Click="btnCheck_Click" Name="btnCheck" Padding="3" Margin="100 10" Grid.Column="1" Content="Снять номер" FontSize="15"></Button>
+            <Button Cursor="Hand" 
+                    Click="btnCheck_Click"
+                    Name="btnCheck" 
+                    Padding="3"
+                    Margin="100 10"
+                    Grid.Column="1" 
+                    Content="Снять номер"
+                    FontSize="15"></Button>
+            <Button Cursor="Hand"
+                    Name="checkStatus"
+                    Click="checkStatus_Click"
+                    Padding="3"
+                    Margin="100 10"
+                    Grid.Column="1"
+                    Content="Проверить статус брони"
+                    FontSize="15"></Button>
 
 
             <Separator Background="Cyan"/>

@@ -131,6 +131,12 @@ namespace HotelCW
                                 return;
                             }
 
+                            user.DateFrom = fromCalendar.SelectedDate.Value.Date.ToShortDateString();
+                            user.DateTo = toCalendar.SelectedDate.Value.Date.ToShortDateString();
+
+                            currentClient.DateFrom = fromCalendar.SelectedDate.Value.Date.ToShortDateString();
+                            currentClient.DateTo= toCalendar.SelectedDate.Value.Date.ToShortDateString();
+
                             //end of date validation
 
                             currentClient.ServicePrice = user.ServicePrice;
@@ -203,6 +209,20 @@ namespace HotelCW
             {
                 MessageBox.Show($"{ex.Message}");
                 return;
+            }
+        }
+
+        private void checkStatus_Click(object sender, RoutedEventArgs e)
+        {
+            UserRepository userRepository = new UserRepository();
+            var checkingUser = userRepository.Get(currentClient.Id);
+            if (checkingUser.userRoom != null)
+            {
+                MessageBox.Show(currentClient.CheckStatus().ToString(), "Ваша бронь", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (checkingUser.userRoom == null) 
+            {
+                MessageBox.Show("Вы еще не забронировали номер.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

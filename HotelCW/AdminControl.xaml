@@ -183,7 +183,7 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Number}" Width="*" Header="№"/>
-                        <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Цена за ночь"/>
+                        <DataGridTextColumn Binding="{Binding Path=Price}" Width="*" Header="Цена за ночь ($)"/>
                         <DataGridTextColumn Binding="{Binding Path=Type}" Width="*" Header="Тип"/>
                         <DataGridTextColumn Binding="{Binding Path=Status}" Width="*" Header="Статус"/>
                     </DataGrid.Columns>
